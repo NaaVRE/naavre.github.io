@@ -22,7 +22,7 @@ jobs:
         uses: actions/checkout@v4
 
       - name: Set BASE_URL
-        run: echo "BASE_URL=${{ env.SITE_BASE_URL }}/${{ env.PR_PREVIEW_DIR }}/${{ github.event.number }}/" >> $GITHUB_ENV
+        run: echo "BASE_URL=${{ env.PR_PREVIEW_DIR }}/pr-${{ github.event.number }}/" >> $GITHUB_ENV
 
       - name: Install and Build
         if: github.event.action != 'closed'
@@ -35,5 +35,5 @@ jobs:
         with:
           source-dir: ./build
           pages-base-url: ${{ env.SITE_BASE_URL }}
-          umbrella-dir: ${{ env.PR_PREVIEW_DIR }}
+          umbrella-dir: docs/${{ env.PR_PREVIEW_DIR }}
           pages-base-path: docs
