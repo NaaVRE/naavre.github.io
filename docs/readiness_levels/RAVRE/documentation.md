@@ -20,4 +20,6 @@ The following processes take place in the RAVRE data processing pipeline:
 5) The vol2bird algorithm returns vertical profiles of biological scatters to *PVOL-VP-converter*.
 6) Notebook cell *PVOL-VP-converter* stores the vertical profiles in Minio object store.
 
+Current development: New cells are available to visualize the vertical profiles.
+
 ![ images/RAVRE_sequence_diagram.drawio.png not found](images/RAVRE_sequence_diagram.drawio.png)
