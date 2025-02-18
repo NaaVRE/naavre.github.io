@@ -12,7 +12,7 @@ title: "RAVRE: Easy processing of weather radar data to vertical profiles of bio
 This virtual lab (VL) allows users to easily obtain biological scatters from radar data.
 The lab reduces the initial investment of acquiring access and expertise to computational resources and provide immediate access to tools built by domain experts. These tools are then run in the cloud leveraging the performance and flexibility of cloud computing.
 The VL is shipped with the data management plan used by the University of Amsterdam's Animal Movement Ecology group (UvA IBED-TCE AME) to provide an out of the box solution for managing large datasets. 
-RAVRE is currently capable of accessing, processing, managing and visualizing data from the The Royal Netherlands Meteorological Institute's (RNMI) open Radar Data repository. The VL has multi-language support, and has well known libraries such as bioRad in R and xradar in Python installed.  Furthermore, it uses vol2bird for processing biological echoes found in Polar Volume files to Vertical Profiles.
+RAVRE is currently capable of accessing, processing, managing and visualizing data from the Royal Netherlands Meteorological Institute's (RNMI) open Radar Data repository. The VL has multi-language support, and has well known libraries such as bioRad in R and xradar in Python installed.  Furthermore, it uses vol2bird for processing biological echoes found in Polar Volume files to Vertical Profiles.
 
 ### Keywords 
   - Aerial animal movement
