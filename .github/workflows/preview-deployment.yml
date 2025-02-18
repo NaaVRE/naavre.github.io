@@ -11,7 +11,6 @@ on:
 concurrency: preview-${{ github.ref }}
 
 env:
-  SITE_BASE_URL: naavre.net
   PR_PREVIEW_DIR: pr-preview
 
 jobs:
@@ -34,5 +33,5 @@ jobs:
         uses: rossjrw/pr-preview-action@v1
         with:
           source-dir: ./build
-          pages-base-url: ${{ env.SITE_BASE_URL }}
+          pages-base-url: naavre.net
           umbrella-dir: ${{ env.PR_PREVIEW_DIR }}
