@@ -36,4 +36,3 @@ jobs:
           source-dir: ./build
           pages-base-url: ${{ env.SITE_BASE_URL }}
           umbrella-dir: ${{ env.PR_PREVIEW_DIR }}
-          pages-base-path: docs/
