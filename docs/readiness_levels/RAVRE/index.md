@@ -26,6 +26,7 @@ RAVRE is currently capable of accessing, processing, managing and visualizing da
 - Vol2bird algorithm
 - Mapping to Vol2bird input format
 - Easy KNMI data retrieval
+- Biological scatterers visualization
 
 **License:** Apache-2.0
 
