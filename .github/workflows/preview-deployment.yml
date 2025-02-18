@@ -26,7 +26,7 @@ jobs:
       - name: Deploy preview
         uses: rossjrw/pr-preview-action@v1
         with:
-          source-dir: ./build/
+          source-dir: ./build
           pages-base-url: naavre.net
-          umbrella-dir: docs/pr-preview
+          umbrella-dir: pr-preview
           pages-base-path: docs
