@@ -10,12 +10,19 @@ on:
 
 concurrency: preview-${{ github.ref }}
 
+env:
+  SITE_BASE_URL: naavre.net
+  PR_PREVIEW_DIR: pr-preview
+
 jobs:
   deploy-preview:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
         uses: actions/checkout@v4
+
+      - name: Set BASE_URL
+        run: echo "BASE_URL=$SITE_BASE_URL/$PR_PREVIEW_DIR/${{ github.event.number }}/" >> $GITHUB_ENV
 
       - name: Install and Build
         if: github.event.action != 'closed'
@@ -27,6 +34,6 @@ jobs:
         uses: rossjrw/pr-preview-action@v1
         with:
           source-dir: ./build
-          pages-base-url: naavre.net
-          umbrella-dir: pr-preview
+          pages-base-url: $SITE_BASE_URL
+          umbrella-dir: $PR_PREVIEW_DIR
           pages-base-path: docs
