@@ -32,7 +32,7 @@ Special variables can be used in the cell code. Their name should contain one of
 
   [Param_example.webm](https://github.com/QCDIS/vre_documetation/assets/9680609/fea3d96b-97d3-43cd-b009-b5bd4537de5a)
 
-* `secret_`: these variables are used to pass secret parameters to a cell. They should be used for credentials such as passwords or API keys. They are similar to `param_` variables, but no default value is saved to the catalogue, and values are handled in a secure way when executing the workflow.
+* `secret_`: these variables are used to pass secret parameters to a cell. They should be used for credentials such as passwords or API keys. They are similar to `param_` variables, but no default value is saved to the catalogue, and values are handled in a secure way when executing the workflow. In order not to accidentally commit secrets to the repository do not store them in the code. Instead, use the [SecretsProvider].
 
   ![Component Containerizer secrets](images/component_containerizer_secrets.png)
 
@@ -207,3 +207,18 @@ can download it.
 
 In all VLs there is a Git integration with jupyterlab-git.
 To clone and push to a repository you can follow the instructions from here: [jupyterlab-git](https://pypi.org/project/jupyterlab-git/).
+
+## Secrets provider
+For secure secret management, use the `SecretsProvider` package. This package allows you to store secrets in a separate `.env` file, 
+which should never be committed to your Git repository. 
+Use `SecretsProvider` to retrieve these secrets within cells that are not containerized. 
+Containerized cells will not have access to the `.env` file, 
+so you will need to fill in your secrets as parameters manually when running the workflow. 
+Prefix all secret variable names with `_secret` (e.g., `_secret_api_key`) to prevent their values from being saved to the catalog. 
+Consult the `SecretsProvider` documentation via `help(SecretsProvider)` for detailed usage instructions. Example:
+
+```python
+# DO NOT CONTAINERISE
+from SecretsProvider import SecretsProvider
+secret_API_key = SecretsProvider().get_secret("secret_API_key")
+```
