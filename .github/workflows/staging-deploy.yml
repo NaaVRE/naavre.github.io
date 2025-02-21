@@ -1,0 +1,38 @@
+name: Staging deployment
+
+on:
+  pull_request:
+    types:
+      - opened
+      - reopened
+      - synchronize
+      - closed
+
+env:
+  PR_PREVIEW_DIR: pr-preview
+
+jobs:
+  test-deploy:
+    name: Staging deployment
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 18
+          cache: npm
+      - name: Set BASE_URL
+        run: echo "BASE_URL=${{ env.PR_PREVIEW_DIR }}/pr-${{ github.event.number }}/" >> $GITHUB_ENV
+
+      - name: Install and test build website
+        if: github.event.action != 'closed'
+        run: |
+          npm ci
+          npm run build
+
+      - name: Deploy preview
+        uses: rossjrw/pr-preview-action@v1
+        with:
+          source-dir: ./build
+          pages-base-url: naavre.net
+          umbrella-dir: ${{ env.PR_PREVIEW_DIR }}
