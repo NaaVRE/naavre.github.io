@@ -8,25 +8,26 @@ on:
       - synchronize
       - closed
 
-concurrency: preview-${{ github.ref }}
-
 env:
   PR_PREVIEW_DIR: pr-preview
 
 jobs:
-  deploy-preview:
+  test-deploy:
+    name: Test deployment
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout
-        uses: actions/checkout@v4
-
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 18
+          cache: npm
       - name: Set BASE_URL
         run: echo "BASE_URL=${{ env.PR_PREVIEW_DIR }}/pr-${{ github.event.number }}/" >> $GITHUB_ENV
 
-      - name: Install and Build
+      - name: Install and test build website
         if: github.event.action != 'closed'
         run: |
-          npm install
+          npm ci
           npm run build
 
       - name: Deploy preview
