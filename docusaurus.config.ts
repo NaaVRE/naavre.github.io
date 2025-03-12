@@ -120,7 +120,9 @@ const config: Config = {
           ]
         }
       ],
-      copyright: `Copyright © ${new Date().getFullYear()} LifeWatch ERIC VLIC / University of Amsterdam.`
+
+      copyright: `The development of NaaVRE is partially supported by the University of Amsterdam and LifeWatch ERIC. <br />
+                    © ${new Date().getFullYear()} LifeWatch ERIC / UvA`
     },
     prism: {
       theme: prismThemes.github,
