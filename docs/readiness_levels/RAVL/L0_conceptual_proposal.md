@@ -28,4 +28,4 @@ The following milestones can be achieved during the phase L0 of virtual lab deve
     - *ToDo: We need to agree on a license.*
 * Documentation
   - [ ] The virtual lab has a nice name.
-    - *ToDo Koen: The virtual lab in NaaVRE has to be renamed to "RAVRE".*
+    - *ToDo Koen: The virtual lab in NaaVRE has to be renamed to "RAVL".*
