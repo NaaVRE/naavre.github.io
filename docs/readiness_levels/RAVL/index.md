@@ -30,7 +30,7 @@ RAVL is currently capable of accessing, processing, managing and visualizing dat
 **License:** Apache-2.0
 
 ### NaaVRE virtual lab
-[Click to open RAVL in NaaVRE](https://naavre.lifewatch.dev/vreapp/vlabs/vol2bird)
+[Click to open RAVL in NaaVRE](https://staging.demo.naavre.net/vreapp/vlabs/RAVL)
 
 **Related virtual labs:** None
 
@@ -51,7 +51,7 @@ Picking custom dates to study biological scatters using KNMI weather radar data 
 Preprocessing other weather radar data to the vol2bird input format requires some experience in handling APIs and data in Python.
 
 ### Documentation
-See [the documentation page](/docs/readiness_levels/RAVL/documentation). Additionally, a user guide and tutorial is available in [the virtual lab](https://naavre.lifewatch.dev/vreapp/vlabs/vol2bird).
+See [the documentation page](/docs/readiness_levels/RAVL/documentation). Additionally, a user guide and tutorial is available in [the virtual lab](https://staging.demo.naavre.net/vreapp/vlabs/RAVL).
 
 ### Point of contact
 Berend-Christiaan Wijers  
