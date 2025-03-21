@@ -1,8 +1,8 @@
 ---
 sidebar_position: 1
-title: RAVRE documentation
+title: RAVL documentation
 ---
-This page provides detailed documentation for RAVRE. A higher level overview of the RAVRE virtual lab is available on [the lab overview page](..).
+This page provides detailed documentation for RAVL. A higher level overview of the RAVL virtual lab is available on [the lab overview page](..).
 
 ### Viewpoints
 #### Mathematical description
@@ -12,7 +12,7 @@ This page provides detailed documentation for RAVRE. A higher level overview of 
 *ToDo: How is the algorithm converted into computational methods?*
 
 #### Engineering implementation / Architecture
-The following processes take place in the RAVRE data processing pipeline:
+The following processes take place in the RAVL data processing pipeline:
 1) Notebook cell *Download-KNMI* requests data from the KNMI open data platform.
 2) KNNI data is returned to NaaVRE and locally stored.
 3) Notebook cell *KNMI-to-odim-converter* retrieves the local data, pre-processes it, and stores it in a Minio object store.
@@ -20,4 +20,4 @@ The following processes take place in the RAVRE data processing pipeline:
 5) The vol2bird algorithm returns vertical profiles of biological scatters to *PVOL-VP-converter*.
 6) Notebook cell *PVOL-VP-converter* stores the vertical profiles in Minio object store.
 
-![ images/RAVRE_sequence_diagram.drawio.png not found](images/RAVRE_sequence_diagram.drawio.png)
+![ images/RAVL_sequence_diagram.drawio.png not found](images/RAVL_sequence_diagram.drawio.png)
