@@ -107,6 +107,31 @@ print(my_input, param_my_param)
 
 For the full syntax, see the [YAML document schema](https://github.com/QCDIS/NaaVRE/blob/main/jupyterlab_vre/services/extractor/cell_header.schema.json).
 
+### Containerizing R cells
+
+While containerizing R code cells is similar to Python, R's characteristics make it more challenging and require additional steps. The type of detected variables will only be identified if they have been explicitly assigned a primitive value.
+
+```
+# Will be detected
+a <- 1L # Integer
+b <- 1.5 # Float
+c <- "foo" # String
+d <- list(1,2,3) # List
+
+# Will not be detected
+e <- round(1.555, 2)
+```
+
+The type detector can detect the type of variables that have not been explicitly assigned a primitive value.
+
+![type_detector_1](images/types_detector_R_1.png)
+
+By pressing the `Type Detector` button, the selected cell will be executed by the kernel and the types of the detected variables will be retrieved. However, this does require that the selected cell is executable and that all used variables are initialized.
+
+![type_detector_2](images/types_detector_R_2.png)
+
+In R, new variables can be added to the environment without explicit initialization, leading to instances where additional inputs are detected. This is especially common when working with dataframes, where variables for columns may be implicitly created. Unwanted input variables can be removed by pressing the `X` button next to the variable.
+
 ## Experiment Manager
 
 In the 'Experiment Manager' page you can compose and execute workflows. To compose a workflow click on the '+' button in
@@ -181,4 +206,15 @@ can download it.
 ## Jupyterlab-git
 
 In all VLs there is a Git integration with jupyterlab-git.
-To clone and push to a repository you can follow the instructions from here: [jupyterlab-git](https://pypi.org/project/jupyterlab-git/).
+To clone a repository you can follow the instructions from here: [jupyterlab-git](https://pypi.org/project/jupyterlab-git/).  
+The `.gitignore` is recommended to at least contain the following:
+```gitignore
+.ipynb_checkpoints
+.env 
+# The `.env` file is used by `SecretsProvider` to store the secrets and should therefore not be pushed to the repository.  
+```
+Once you have cloned a repository and have write access to this repository, you can push changes to the repository using a [fine-grained token](https://github.com/settings/personal-access-tokens). 
+This token can be set to only apply to the repository created for the content of the virtual lab and only needs the following repository permissions:
+- Read access to metadata
+- Read/write access to code
+
