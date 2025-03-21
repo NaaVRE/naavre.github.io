@@ -4,7 +4,7 @@ title: "RAVL: Easy processing of weather radar data to vertical profiles of biol
 ---
 **Introduction:** The airspace is becoming increasingly crowded. High-rises, wind farms and airports all contribute to conflict with aerial organisms. Information about the movements of organisms in the air is required to identify stop-over sites, migratory routes, and patterns. This can inform mitigation of conflicts by, for example, wind-turbine curtailments or early warning systems for aviation. Weather radars, that continuously monitor the sky across continents, can be used to study movements of birds, bats, and insects. However, for continental scale analysis, large volumes of data are required to be processed and analyzed, which often rely on institute-specific tools and computational resources. This severely hampers collaborative efforts because of the initial investment of time and resources to gain access to existing computing infrastructure. Here we show a Radar Aeroecology Virtual Research Environment (RAVL) which uses the Lifewatch ERIC infrastructure to facilitate collaboration and re-use of infrastructure and tools. By providing RAVL, we aim to facilitate collaboration between ornithological institutes. 
 
-[Readiness level](development_log): L1 - co-development 
+**Readiness level:** L1 - co-development 
 
 ![ images/RAVL_overview_image.drawio.png not found](images/RAVL_overview_image.drawio.png)
 
