@@ -94,15 +94,15 @@ const config: Config = {
           items: [
             {
               label: 'Open Lab',
-              href: 'https://naavre.lifewatch.dev/vreapp/vlabs/openlab'
+              href: 'https://staging.demo.naavre.net/vreapp/vlabs/openlab'
             },
             {
               label: 'Laserfarm',
-              href: 'https://naavre.lifewatch.dev/vreapp/vlabs/laserfarm'
+              href: 'https://staging.demo.naavre.net/vreapp/vlabs/laserfarm'
             },
             {
               label: 'Vol2bird',
-              href: 'https://naavre.lifewatch.dev/vreapp/vlabs/vol2bird'
+              href: 'https://staging.demo.naavre.net/vreapp/vlabs/vol2bird'
             }
           ]
         },
