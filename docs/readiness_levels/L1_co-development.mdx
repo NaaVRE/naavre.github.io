@@ -10,6 +10,7 @@ Co-development of the new virtual lab can be started when a basic virtual lab ha
 
 ### During the co-development phase
 The development team preferably follows Agile practices to implement the components and workflows based on the [development plan](../development_plan).
+LifeWatch provides limited storage and computing capacity for the virtual lab, so the development team should be careful with the resources used.
 
 Where possible, the following should be done while building the virtual lab:
 
@@ -27,6 +28,9 @@ Where possible, the following should be done while building the virtual lab:
 * Data
   * Prepare the data for scientific experiments.
   * Store data that is only read by the virtual lab in an external catalogue and use an API to access this data.
+* Infrastructure
+  * Perform a benchmark to check the storage and computing needs for the virtual lab.
+  * Arrange the storage and computing resources for running the scientific scenario in the virtual lab.
 * Parallelization
   * Parallelize the execution of the parts of the code where this is useful. A tutorial is available [here](https://github.com/QCDIS/lifewatch-notebooks/blob/main/NaaVRE-tutorials/splitting-classic.ipynb).
 * Workflow
@@ -74,6 +78,9 @@ Currently, you can verify this by manually executing all cells in the notebook o
   - [ ] External code use, such as command-line interface tools, are clearly labeled.
 * Containerization
   - [ ] The notebook cells can be containerized.
+* Infrastructure
+  - [ ] A benchmark has been performed to check the storage and computing needs for the virtual lab.
+  - [ ] The storage and computing resources for running the scientific scenario in the virtual lab are arranged.
 * Workflow execution
   - [ ] The containerized cells can run without any modifications.
   - [ ] It is possible to give a demonstration of the virtual lab.
