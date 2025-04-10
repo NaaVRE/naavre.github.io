@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="generator" content="Docusaurus v3.0.1">
 <title data-rh="true">L1 - Co-development | NaaVRE</title><meta data-rh="true" name="viewport" content="width=device-width,initial-scale=1"><meta data-rh="true" name="twitter:card" content="summary_large_image"><meta data-rh="true" property="og:image" content="https://naavre.github.io/img/social-card.png"><meta data-rh="true" name="twitter:image" content="https://naavre.github.io/img/social-card.png"><meta data-rh="true" property="og:url" content="https://naavre.github.io/docs/readiness_levels/L1_co-development/"><meta data-rh="true" property="og:locale" content="en"><meta data-rh="true" name="docusaurus_locale" content="en"><meta data-rh="true" name="docsearch:language" content="en"><meta data-rh="true" name="docusaurus_version" content="current"><meta data-rh="true" name="docusaurus_tag" content="docs-default-current"><meta data-rh="true" name="docsearch:version" content="current"><meta data-rh="true" name="docsearch:docusaurus_tag" content="docs-default-current"><meta data-rh="true" property="og:title" content="L1 - Co-development | NaaVRE"><meta data-rh="true" name="description" content="Start situation"><meta data-rh="true" property="og:description" content="Start situation"><link data-rh="true" rel="icon" href="/img/favicon.ico"><link data-rh="true" rel="canonical" href="https://naavre.github.io/docs/readiness_levels/L1_co-development/"><link data-rh="true" rel="alternate" href="https://naavre.github.io/docs/readiness_levels/L1_co-development/" hreflang="en"><link data-rh="true" rel="alternate" href="https://naavre.github.io/docs/readiness_levels/L1_co-development/" hreflang="x-default"><link rel="stylesheet" href="/assets/css/styles.182ff793.css">
-<script src="/assets/js/runtime~main.9af78381.js" defer="defer"></script>
+<script src="/assets/js/runtime~main.65ce54ea.js" defer="defer"></script>
 <script src="/assets/js/main.b56e1c3e.js" defer="defer"></script>
 </head>
 <body class="navigation-with-keyboard">
@@ -12,7 +12,8 @@
 <p>Co-development of the new virtual lab can be started when a basic virtual lab has been provisioned with the customized libraries
 and configurations required by the <a href="/docs/readiness_levels/development_plan/">development plan</a> and a development team is ready to work on the subject.</p>
 <h3 class="anchor anchorWithStickyNavbar_LWe7" id="during-the-co-development-phase">During the co-development phase<a href="#during-the-co-development-phase" class="hash-link" aria-label="Direct link to During the co-development phase" title="Direct link to During the co-development phase">​</a></h3>
-<p>The development team preferably follows Agile practices to implement the components and workflows based on the <a href="/docs/readiness_levels/development_plan/">development plan</a>.</p>
+<p>The development team preferably follows Agile practices to implement the components and workflows based on the <a href="/docs/readiness_levels/development_plan/">development plan</a>.
+LifeWatch provides limited storage and computing capacity for the virtual lab, so the development team should be careful with the resources used.</p>
 <p>Where possible, the following should be done while building the virtual lab:</p>
 <ul>
 <li>Documentation<!-- -->
@@ -45,6 +46,12 @@ and configurations required by the <a href="/docs/readiness_levels/development_p
 <ul>
 <li>Prepare the data for scientific experiments.</li>
 <li>Store data that is only read by the virtual lab in an external catalogue and use an API to access this data.</li>
+</ul>
+</li>
+<li>Infrastructure<!-- -->
+<ul>
+<li>Perform a benchmark to check the storage and computing needs for the virtual lab.</li>
+<li>Arrange the storage and computing resources for running the scientific scenario in the virtual lab.</li>
 </ul>
 </li>
 <li>Parallelization<!-- -->
@@ -119,6 +126,12 @@ Currently, you can verify this by manually executing all cells in the notebook o
 <li>Containerization<!-- -->
 <ul class="contains-task-list containsTaskList_mC6p">
 <li class="task-list-item"><input type="checkbox" disabled=""> <!-- -->The notebook cells can be containerized.</li>
+</ul>
+</li>
+<li>Infrastructure<!-- -->
+<ul class="contains-task-list containsTaskList_mC6p">
+<li class="task-list-item"><input type="checkbox" disabled=""> <!-- -->A benchmark has been performed to check the storage and computing needs for the virtual lab.</li>
+<li class="task-list-item"><input type="checkbox" disabled=""> <!-- -->The storage and computing resources for running the scientific scenario in the virtual lab are arranged.</li>
 </ul>
 </li>
 <li>Workflow execution<!-- -->
