@@ -85,7 +85,7 @@
         <mxCell id="l4sgM1ovnbw1UgXevknb-7" value="" style="shape=step;perimeter=stepPerimeter;whiteSpace=wrap;html=1;fixedSize=1;dashed=1;dashPattern=1 4;" vertex="1" parent="1">
           <mxGeometry x="460" y="210" width="290" height="30" as="geometry" />
         </mxCell>
-        <mxCell id="I9sGoZm3iVi72w8b68Hv-22" value="Core developers" style="shape=step;perimeter=stepPerimeter;whiteSpace=wrap;html=1;fixedSize=1;" parent="1" vertex="1">
+        <mxCell id="I9sGoZm3iVi72w8b68Hv-22" value="Virtual lab developers" style="shape=step;perimeter=stepPerimeter;whiteSpace=wrap;html=1;fixedSize=1;" parent="1" vertex="1">
           <mxGeometry x="160" y="210" width="320" height="30" as="geometry" />
         </mxCell>
       </root>
