@@ -209,16 +209,31 @@ In all VLs there is a Git integration with jupyterlab-git.
 To clone and push to a repository you can follow the instructions from here: [jupyterlab-git](https://pypi.org/project/jupyterlab-git/).
 
 ## Secrets provider
-For secure secret management, use the `SecretsProvider` package. This package allows you to store secrets in a separate `.env` file, 
-which should never be committed to your Git repository. 
+For secure secret management, use the `SecretsProvider` packages available in _R_ and _Python_. 
+These packages allow you to store secrets in a separate `.env` file.
+Make sure to never commit this `.env` file to your Git repository. 
 Use `SecretsProvider` to retrieve these secrets within cells that are not containerized. 
 Containerized cells will not have access to the `.env` file, 
 so you will need to fill in your secrets as parameters manually when running the workflow. 
 Prefix all secret variable names with `_secret` (e.g., `_secret_api_key`) to prevent their values from being saved to the catalog. 
-Consult the `SecretsProvider` documentation via `help(SecretsProvider)` for detailed usage instructions. Example:
+For python Consult the `SecretsProvider` documentation via `help(SecretsProvider)` for detailed usage instructions. For R, see the [reference manual](https://cran.r-project.org/web/packages/SecretsProvider/refman/SecretsProvider.html).
 
+Python example:
 ```python
 # DO NOT CONTAINERISE
 from SecretsProvider import SecretsProvider
+# Set a secret
+secret_API_key = SecretsProvider().set_secret("secret_API_key")
+# Get a secret, or set and get the secret if it does not exist
 secret_API_key = SecretsProvider().get_secret("secret_API_key")
+```
+R example:
+```python
+# DO NOT CONTAINERISE
+library("SecretsProvider")
+secretsProvider <- SecretsProvider()
+# Set a secret
+secret_API_key <- secretsProvider$set_secret("secret_API_key")
+# Get a secret, or set and get the secret if it does not exist
+secret_API_key <- secretsProvider$get_secret("secret_API_key")
 ```
