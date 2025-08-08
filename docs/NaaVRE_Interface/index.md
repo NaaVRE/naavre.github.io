@@ -32,7 +32,7 @@ Special variables can be used in the cell code. Their name should contain one of
 
   [Param_example.webm](https://github.com/QCDIS/vre_documetation/assets/9680609/fea3d96b-97d3-43cd-b009-b5bd4537de5a)
 
-* `secret_`: these variables are used to pass secret parameters to a cell. They should be used for credentials such as passwords or API keys. They are similar to `param_` variables, but no default value is saved to the catalogue, and values are handled in a secure way when executing the workflow.
+* `secret_`: these variables are used to pass secret parameters to a cell. They should be used for credentials such as passwords or API keys. They are similar to `param_` variables, but no default value is saved to the catalogue, and values are handled in a secure way when executing the workflow. In order not to accidentally commit secrets to the repository do not store them in the code. Instead, use the [SecretsProvider].
 
   ![Component Containerizer secrets](images/component_containerizer_secrets.png)
 
@@ -206,15 +206,34 @@ can download it.
 ## Jupyterlab-git
 
 In all VLs there is a Git integration with jupyterlab-git.
-To clone a repository you can follow the instructions from here: [jupyterlab-git](https://pypi.org/project/jupyterlab-git/).  
-The `.gitignore` is recommended to at least contain the following:
-```gitignore
-.ipynb_checkpoints
-.env 
-# The `.env` file is used by `SecretsProvider` to store the secrets and should therefore not be pushed to the repository.  
-```
-Once you have cloned a repository and have write access to this repository, you can push changes to the repository using a [fine-grained token](https://github.com/settings/personal-access-tokens). 
-This token can be set to only apply to the repository created for the content of the virtual lab and only needs the following repository permissions:
-- Read access to metadata
-- Read/write access to code
+To clone and push to a repository you can follow the instructions from here: [jupyterlab-git](https://pypi.org/project/jupyterlab-git/).
 
+## Secrets provider
+For secure secret management, use the `SecretsProvider` packages available in _R_ and _Python_. 
+These packages allow you to store secrets in a separate `.env` file.
+Make sure to never commit this `.env` file to your Git repository. 
+Use `SecretsProvider` to retrieve these secrets within cells that are not containerized. 
+Containerized cells will not have access to the `.env` file, 
+so you will need to fill in your secrets as parameters manually when running the workflow. 
+Prefix all secret variable names with `_secret` (e.g., `_secret_api_key`) to prevent their values from being saved to the catalog. 
+For python Consult the `SecretsProvider` documentation via `help(SecretsProvider)` for detailed usage instructions. For R, see the [reference manual](https://cran.r-project.org/web/packages/SecretsProvider/refman/SecretsProvider.html).
+
+Python example:
+```python
+# DO NOT CONTAINERISE
+from SecretsProvider import SecretsProvider
+# Set a secret
+secret_API_key = SecretsProvider().set_secret("secret_API_key")
+# Get a secret, or set and get the secret if it does not exist
+secret_API_key = SecretsProvider().get_secret("secret_API_key")
+```
+R example:
+```python
+# DO NOT CONTAINERISE
+library("SecretsProvider")
+secretsProvider <- SecretsProvider()
+# Set a secret
+secret_API_key <- secretsProvider$set_secret("secret_API_key")
+# Get a secret, or set and get the secret if it does not exist
+secret_API_key <- secretsProvider$get_secret("secret_API_key")
+```
