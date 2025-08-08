@@ -2,7 +2,15 @@
 sidebar_position: 1
 title: "RAVL: Easy processing of weather radar data to vertical profiles of biological scatterers."
 ---
-**Introduction:** The airspace is becoming increasingly crowded. High-rises, wind farms and airports all contribute to conflict with aerial organisms. Information about the movements of organisms in the air is required to identify stop-over sites, migratory routes, and patterns. This can inform mitigation of conflicts by, for example, wind-turbine curtailments or early warning systems for aviation. Weather radars, that continuously monitor the sky across continents, can be used to study movements of birds, bats, and insects. However, for continental scale analysis, large volumes of data are required to be processed and analyzed, which often rely on institute-specific tools and computational resources. This severely hampers collaborative efforts because of the initial investment of time and resources to gain access to existing computing infrastructure. Here we show a Radar Aeroecology Virtual Research Environment (RAVL) which uses the Lifewatch ERIC infrastructure to facilitate collaboration and re-use of infrastructure and tools. By providing RAVL, we aim to facilitate collaboration between ornithological institutes. 
+The airspace is becoming increasingly crowded. High-rises, wind farms and airports all contribute to 
+conflict with aerial organisms. Information about the movements of organisms in the air is required to identify stop-over sites, 
+migratory routes, and patterns. This can inform mitigation of conflicts by, for example, wind-turbine curtailments or 
+early warning systems for aviation. Weather radars, that continuously monitor the sky across continents, 
+can be used to study movements of birds, bats, and insects. However, for continental scale analysis, large volumes of 
+data are required to be processed and analyzed, which often rely on institute-specific tools and computational resources. 
+This severely hampers collaborative efforts because of the initial investment of time and resources 
+to gain access to existing computing infrastructure. The Radar Aeroecology Virtual Lab (RAVL) 
+facilitates collaboration and re-use of infrastructure and tools.
 
 **Readiness level:** L1 - co-development 
 
@@ -51,7 +59,7 @@ Picking custom dates to study biological scatters using KNMI weather radar data 
 Preprocessing other weather radar data to the vol2bird input format requires some experience in handling APIs and data in Python.
 
 ### Documentation
-See [the documentation page](documentation). Additionally, a user guide and tutorial is available in [the virtual lab](https://staging.demo.naavre.net/vreapp/vlabs/RAVL).
+See [the documentation page](/docs/RAVL/documentation). Additionally, a user guide and tutorial is available in [the virtual lab](https://staging.demo.naavre.net/vreapp/vlabs/RAVL).
 
 ### Point of contact
 Berend-Christiaan Wijers  
