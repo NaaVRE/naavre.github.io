@@ -134,24 +134,22 @@ In R, new variables can be added to the environment without explicit initializat
 
 ## Experiment Manager
 
-In the 'Experiment Manager' page you can compose and execute workflows. To compose a workflow click on the '+' button in
-the bottom right corner of the page and select the 'Cells Catalog' option.
+In the 'Experiment Manager' page you can compose and execute workflows.
 
-![Experiment Manager](images/experimenter_manager_7.png)
+![Experiment Manager](images/experimenter_manager_8.png)
 
-After you have selected the cells you want to compose a workflow with, click on the 'Add to Workspace' button.
+### Special Cells
 
-### Special Components
-
-In the 'Experiment Manager' page you can compose workflows using special components. These components are:
+In the 'Experiment Manager' page you can compose workflows using special cells. These components are:
 * Splitter: This component is used to split an output array from a call into its elements and feed each element to the
   next cell. That way the next cell will be executed in parallel as many times as the number of elements in the array.
 * Merger: This component is used to merge the outputs of multiple cells into a single array.
+* Visualizer
 
 ### Cells Catalog
 The cells catalog contains all the cells that have been containerized.
 
-![Cells Catalog](images/cells_catalog_1.png)
+![Cells Catalog](images/cells_catalog_2.png)
 
 ### Re-containerizing cells used in a workflow
 
