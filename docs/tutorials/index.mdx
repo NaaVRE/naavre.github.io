@@ -166,46 +166,36 @@ To compose a workflow open a new tab and click on the 'Experiment Manager' icon.
 
 ![Experimenter Manager](./images/8_workflow_2.png)
 
-Click on the 'Cells catalogue' button.
-
-![Experimenter Manager](./images/8_workflow_3.png)
-
-For each of the cells you created:
-- select the cell,
-- click on Add to workspace.
-
-![Experimenter Manager](./images/8_workflow_4.png)
-
 Drag and drop the two cells onto the canvas, as well as a 'splitter' cell.
 
-![Experimenter Manager](./images/8_workflow_5.png)
+![Experimenter Manager](./images/8_workflow_10.png)
 
 Connect the cells nodes.
 
 :::tip
-It is important to note that the direction of the connections between the cells is important as it indicates the flow of ]
+It is important to note that the direction of the connections between the cells is important as it indicates the flow of
 data dependencies between the cells. Therefore, the flow should be: 'Input list' -> 'Splitter' -> 'Process list'.
 :::
 
-![Experimenter Manager](./images/8_workflow_6.png)
+![Experimenter Manager](./images/8_workflow_11.png)
 
 Click on the 'Run' button.
 
-![Experimenter Manager](./images/8_workflow_7.png)
+![Experimenter Manager](./images/8_workflow_12.png)
 
-Click on 'Execute'
+Click on 'Run'
 
 :::note
 If your workflow uses [parameters](../NaaVRE_Interface/#special-variables), you can set their values here. To use values from the notebook, click on 'Use notebook values'.
 :::
 
-![Experimenter Manager](./images/8_workflow_8.png)
+![Experimenter Manager](./images/8_workflow_13.png)
 
 ### Monitor the workflow
 
 To check the progress of the workflow click on the link on the pop-up message.
 
-![Experimenter Manager](./images/8_workflow_9.png)
+![Experimenter Manager](./images/8_workflow_14.png)
 
 This will take you to the workflow engine page where you can see the progress of the workflow. Click on a node to see its status and logs.
 
@@ -214,65 +204,3 @@ This will take you to the workflow engine page where you can see the progress of
 :::note
 The first time you open the workflow engine, select the 'single sign-on' login, and close the welcome message.
 :::
-
-
-## A more realistic example
-
-:::tip
-
-This example is part of the EGU [SC5.19: Mastering Environmental Research through FAIR Data Integration, VREs and Open Science](https://meetingorganizer.copernicus.org/EGU24/session/49515).
-
-:::
-
-We present a more realistic workflow using data from ICOS:
-
-- list stations matching given criteria
-- list data products matching given criteria for these stations
-- plot a specific variable for these data products
-- save the plots
-
-<ReactPlayer controls width='100%' height='auto' url={icosVideoURL} />
-
-### Run it yourself
-
-**Step 1** Open the example notebook in NaaVRE by following [this link](https://staging.demo.naavre.net/vl-openlab/hub/user-redirect/git-pull?repo=https%3A%2F%2Fgithub.com%2FQCDIS%2Flifewatch-notebooks&urlpath=lab%2Ftree%2Flifewatch-notebooks%2FICOS-demo%2Fegu24-icos-naavre.ipynb&branch=main).
-
-![ICOS example](./images/10_example_icos_1.png)
-
-**Step 2** Fill-in the values for `param_cpauth_token` (cell 2), `param_s3_user_prefix`, `param_s3_access_key`, and `param_s3_secret_key` (cell 6). The s3 params and the “Upload files” step can be skipped if you want to make the tutorial shorter.
-
-After filling in the values, you have the possibility to run the notebook.
-
-![ICOS example](./images/10_example_icos_2.png)
-
-**Step 3** Containerize the cells of the notebook (see [“Containerize the cells”](#containerize-the-cells) in the above tutorial).
-
-![ICOS example](./images/10_example_icos_3.png)
-
-**Step 4** Create a workflow (see [“Compose a workflow”](#compose-a-workflow)) using the cells you just containerized, in the following order:
-- List ICOS stations
-- List data products
-- Splitter
-- Plot time series
-- Merger (optional)
-- Upload files (optional)
-
-![ICOS example](./images/10_example_icos_4.png)
-
-**Step 5** Run the workflow:
-
-1. Click on the “Run” button
-2. Fill in the workflow parameters by clicking on the “Use notebook values” button. Notice that you can edit the parameters at this stage, without having to re-containerize the cells or re-create the workflow.
-3. Click on “Execute”
-
-![ICOS example](./images/10_example_icos_5.png)
-
-**Step 6** Monitor the workflow execution (see [“Monitor the workflow”](#monitor-the-workflow))
-
-![ICOS example](./images/10_example_icos_6.png)
-
-**Step 7** Retrieve the results
-
-If you used the “Upload files” cell, you can retrieve the results that have been uploaded to the MinIO server.
-
-![ICOS example](./images/10_example_icos_7.png)
