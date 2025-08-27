@@ -22,7 +22,12 @@ export default function HomepageHeader (): React.ReactElement {
           <Link
             className="button button--secondary button--lg"
             to="/docs/tutorials">
-            Getting started
+            Tutorial
+          </Link>
+          <Link
+            className="button button--secondary button--lg"
+            to="https://beta.naavre.net">
+            Try NaaVRE
           </Link>
           <Link
             className="button button--secondary button--lg"
