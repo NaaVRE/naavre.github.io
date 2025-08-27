@@ -22,7 +22,7 @@ export default function HomepageHeader (): React.ReactElement {
           <Link
             className="button button--secondary button--lg"
             to="/docs/tutorials">
-            Tutorial
+            Follow the tutorial
           </Link>
           <Link
             className="button button--secondary button--lg"
