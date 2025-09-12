@@ -1,6 +1,7 @@
 ---
-sidebar_position: 1
+sidebar_position: 4
 title: "RAVL: Easy processing of weather radar data to vertical profiles of biological scatterers."
+sidebar_label: "Radar Aeroecology Virtual Lab"
 ---
 The airspace is becoming increasingly crowded. High-rises, wind farms and airports all contribute to 
 conflict with aerial organisms. Information about the movements of organisms in the air is required to identify stop-over sites, 
@@ -59,7 +60,7 @@ Picking custom dates to study biological scatters using KNMI weather radar data 
 Preprocessing other weather radar data to the vol2bird input format requires some experience in handling APIs and data in Python.
 
 ### Documentation
-See [the documentation page](/docs/RAVL/documentation). Additionally, a user guide and tutorial is available in [the virtual lab](https://staging.demo.naavre.net/vreapp/vlabs/RAVL).
+See [the documentation page](/docs/Virtual%20lab%20documentation/RAVL/documentation). Additionally, a user guide and tutorial is available in [the virtual lab](https://staging.demo.naavre.net/vreapp/vlabs/RAVL).
 
 ### Point of contact
 Berend-Christiaan Wijers  
