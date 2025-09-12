@@ -2,7 +2,7 @@
 sidebar_position: 1
 title: RAVL documentation
 ---
-This page provides detailed documentation for RAVL. A higher level overview of the RAVL virtual lab is available on [the lab overview page](..).
+This page provides detailed documentation for RAVL. A higher level overview of the RAVL virtual lab is available on [the lab overview page](../..).
 
 ### Viewpoints
 #### Mathematical description
