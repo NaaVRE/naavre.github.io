@@ -13,7 +13,7 @@ This severely hampers collaborative efforts because of the initial investment of
 to gain access to existing computing infrastructure. The Radar Aeroecology Virtual Lab (RAVL) 
 facilitates collaboration and re-use of infrastructure and tools.
 
-**Readiness level:** L1 - co-development 
+**Maturity level:** L1 - co-development 
 
 ![ images/RAVL_overview_image.drawio.png not found](images/RAVL_overview_image.drawio.png)
 

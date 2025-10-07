@@ -10,7 +10,7 @@ export const L2GoldenUser = () => 'Use the virtual lab to do their research. Pub
 export const L3GoldenUser = () => 'The golden users who have used the virtual lab for their own investigations, will appoint and approve members for the scientific steering board. The golden user can also take place in the scientific steering board.';
 export const L4GoldenUser = () => 'A golden user can keep on using the virtual lab for their own experiments.';
 
-export const L0Coordinator = () => 'Creates a new empty virtual lab. Consults domain and technical experts to assess the whether running the virtual lab in NaaVRE is realistic. Ensures the golden users are onboarded onto NaaVRE and the readiness level framework.';
+export const L0Coordinator = () => 'Creates a new empty virtual lab. Consults domain and technical experts to assess the whether running the virtual lab in NaaVRE is realistic. Ensures the golden users are onboarded onto NaaVRE and the maturity level framework.';
 export const L1Coordinator = () => 'Coordinates the co-development between the golden users,virtual labdevelopers and DevOps engineers.';
 export const L2Coordinator = () => 'Ensures the community supporter is involved in the virtual lab and supports solving any issues arising.';
 export const L3Coordinator = () => 'Monitors the virtual lab and any problems arising during training. Checks whether a user community emerges during this phase that provides a use case for maturing the virtual lab further.';
