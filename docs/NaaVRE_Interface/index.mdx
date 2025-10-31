@@ -2,6 +2,10 @@
 sidebar_position: 3
 ---
 
+import ShareIcon from '@mui/icons-material/Share';
+import PeopleIcon from '@mui/icons-material/People';
+import FilterListIcon from '@mui/icons-material/FilterList';
+
 # The NaaVRE Interface
 
 The Notebook as a Virtual Research Environment (NaaVRE) is a set of tools to allow users to containerize cells, compose
@@ -138,6 +142,11 @@ In the 'Experiment Manager' page you can compose and execute workflows.
 
 ![Experiment Manager](images/experimenter_manager_8.png)
 
+### Cells Catalog
+The cells catalog contains all the cells that have been containerized.
+
+![Cells Catalog](images/cells_catalog_2.png)
+
 ### Special Cells
 
 In the 'Experiment Manager' page you can compose workflows using special cells. These components are:
@@ -146,10 +155,28 @@ In the 'Experiment Manager' page you can compose workflows using special cells. 
 * Merger: This component is used to merge the outputs of multiple cells into a single array.
 * Visualizer
 
-### Cells Catalog
-The cells catalog contains all the cells that have been containerized.
+### Sharing Cells
 
-![Cells Catalog](images/cells_catalog_2.png)
+To share a cell, click on <ShareIcon style={{verticalAlign: "middle"}}/>. You can select users, communities or virtual labs:
+
+![Cell sharing dialog](./images/cell_sharing_1.png)
+
+Once a cell is shared, you can click on <PeopleIcon style={{verticalAlign: "middle"}}/> to update sharing permissions.
+
+:::important
+Cells shared with a community or virtual lab are visible everyone.
+Please only share cells that are useful to others.
+:::
+
+Cells that are shared with you show up directly in your catalogue:
+
+![Shared cell in user's catalogue](./images/cell_sharing_2.png)
+
+Cells shared within communities or virtual labs are only shown if they are relevant to the current virtual lab that you are running.
+For instance, when running the “Open Lab”, only cells shared with the “NaaVRE” community and the “Open Lab” lab are shown by default.
+To display cells from other communities or labs, click on the <FilterListIcon style={{verticalAlign: "middle"}}/>:
+
+![Shared cells filter](./images/cell_sharing_3.png)
 
 ### Re-containerizing cells used in a workflow
 
