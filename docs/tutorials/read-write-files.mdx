@@ -16,7 +16,7 @@ For example to read a file from MinIO/S3, in Python you can use the following co
 
 ```python
 # Configuration (do not containerize this cell)
-param_minio_endpoint = "MINIO_ENDPOINT"  # Replace with your MinIO endpoint, e.g., "myhost:9000"
+param_minio_endpoint = "MINIO_ENDPOINT"  # Replace with your MinIO endpoint, e.g., "myhost:9000". The MinIO endpoint for hot storage provided by VLIC is available on request.
 param_minio_user_prefix = "myname@gmail.com"  # Your personal folder in the naa-vre-user-data bucket in MinIO
 secret_minio_access_key = "MINIO_ACCESSKEY"  # Replace with your actual MinIO access key
 secret_minio_secret_key = "MINIO_SECRETKEY"  # Replace with your actual MinIO secret key
@@ -46,7 +46,7 @@ Similarly, in R you can use the following code:
 
 ```R
 # Configuration (do not containerize this cell)
-param_minio_endpoint = "MINIO_ENDPOINT"  # Replace with your MinIO endpoint, e.g., "myhost:9000"
+param_minio_endpoint = "MINIO_ENDPOINT"  # Replace with your MinIO endpoint, e.g., "myhost:9000". The MinIO endpoint for hot storage provided by VLIC is available on request.
 param_minio_region  = "nl-uvalight"
 param_minio_user_prefix  = "myname@gmail.com"
 secret_minio_access_key   = "MINIO_ACCESSKEY"
