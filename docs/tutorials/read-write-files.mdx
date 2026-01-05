@@ -9,8 +9,8 @@ Inter-Component Storage | Passing data between workflow step. |	During workflow 
 Cloud Storage           |	Saving final results and metadata.	| Permanent.	| Slower
 
 ### Intra-Component Storage
-Suitable for: Intermediate files created and used within the same Jupyter notebook cell / workflow component. If you write a file to your current directory (e.g. `/temp.csv`),
-it is stored on the local disk of the specific node running that component.
+Suitable for: Intermediate files created and used only within the same Jupyter notebook cell. The NaaVRE containerizer turns jupyter notebook cells into single workflow components. If you write a file to your current directory (e.g. `/temp.csv`),
+it is only available within the same workflow component in which it was stored.
 
 :::note
 Keeping data in a variable (in RAM) is always faster than writing to disk. Only write to a file when using it in the same Jupyter cell if your specific tool requires a file path as input.
