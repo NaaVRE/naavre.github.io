@@ -1,15 +1,37 @@
                               # Reading and Writing Files in NaaVRE
 
-To read and write files in NaaVRE so they are available both in the Jupyter
-notebook and in the workflow you should use an external storage. The Jupyter
+To make files available to other workflow components, you should use `/tmp/data` (see [The NaaVRE Interface](../NaaVRE_Interface/#managing-files-in-workflows)).
+`/tmp/data` stores files for the duration of the workflow, so it can not be used to store results of the workflow for later use.
+To read and write files in NaaVRE so they remain available after running a workflow, you should use an external storage. The Jupyter
 notebook file system and the file system used by cells during the workflow
 execution are not the same. Therefore, any file created in the Jupyter notebook
 will not be available in the workflow.
 
+You can store data in the Virtual Lab using two primary methods: Integrated Cloud Storage (for temporary metadata) and External Cloud Storage (for large datasets).
 
-## Example
+#### Integrated Cloud Storage
+![Cloud storage](./images/cloud_storage.png)
 
-To read or write file in NaaVRE, you should first upload it to the external storage.
+While developing a prototype of your workflow or when you want to store metadata about your runs, you can use the cloud storage that is built into NaaVRE. This storage is accessible directly through folders in the File Explorer:
+- /home/jovyan/Cloud Storage/naa-vre-public (Read-Only): Contains public data for virtual labs. You can read from it, but you cannot save or modify files here.
+- /home/jovyan/Cloud Storage/naa-vre-user-data (Read/Write): This is for storing your personal data. You have write permissions for this folder, allowing you to save data, scripts,
+and results directly from your Jupyter Notebooks and workflows as if it were a local drive.
+
+To write data to your personal cloud storage, see the following example in Python:
+```python
+import pandas as pd
+dataframe = pd.DataFrame()
+dataframe.to_csv("/home/jovyan/Cloud Storage/naa-vre-user-data/dummy_results.csv", index=False)
+```
+
+To write a file to your user folder in R, see the following example:
+```
+write.csv(data.frame(), file = /home/jovyan/Cloud Storage/naa-vre-user-data/dummy_results.csv")
+```
+
+#### External cloud storage
+
+To read or write large files in NaaVRE, you should first upload it to an external storage.
 Then you should write the relevant code in the Jupyter notebook to read the file
 process it and write the results back to the external storage.
 For example to read a file from MinIO/S3, in Python you can use the following code:
