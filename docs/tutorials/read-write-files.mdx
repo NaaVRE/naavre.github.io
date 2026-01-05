@@ -1,12 +1,21 @@
                               # Reading and Writing Files in NaaVRE
 
-To make files available to other workflow components, you should use `/tmp/data` (see [The NaaVRE Interface](../NaaVRE_Interface/#managing-files-in-workflows)).
+There are four options available for reading and writing files in NaaVRE which all come with their own performance and availability trade-offs:
+1) Write and read data within a single workflow component / Jupyter lab cell:
+If you need to store data as a file which you will only use within the same workflow component, you can store the data in the directory of the Jupyter notebook.
+Keeping objects in memory will mostly be faster then writing to a file, but if you must write to a file and read it again,
+this will be the fastest option.
+2) Write data in a workflow component and use it in another workflow component:
+If you want to use data in a different workflow component within the same workflow,
+you should store the data in `/tmp/data` (see [The NaaVRE Interface - Managing files in workflows](../../NaaVRE_Interface/#managing-files-in-workflows)).
 `/tmp/data` stores files for the duration of the workflow, so it can not be used to store results of the workflow for later use.
-To read and write files in NaaVRE so they remain available after running a workflow, you should use an external storage. The Jupyter
-notebook file system and the file system used by cells during the workflow
-execution are not the same. Therefore, any file created in the Jupyter notebook
-will not be available in the workflow.
+This option is slightly slower than option 1.
+3) Workflow output data - cloud storage: To write files in NaaVRE that are kept when the workflow finishes, use cloud storage.
+The Jupyter notebook file system and the file system used by cells during the workflow execution are not the same
+and files stored in the workflow are discarded at the end of the workflow.
+Writing and reading files from cloud storage is slower than option 1 and 2.
 
+### Workflow output data - cloud storage
 You can store data in the Virtual Lab using two primary methods: Integrated Cloud Storage (for temporary metadata) and External Cloud Storage (for large datasets).
 
 #### Integrated Cloud Storage
