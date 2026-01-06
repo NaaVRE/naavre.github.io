@@ -1,18 +1,57 @@
                               # Reading and Writing Files in NaaVRE
 
-To read and write files in NaaVRE so they are available both in the Jupyter
-notebook and in the workflow you should use an external storage. The Jupyter
-notebook file system and the file system used by cells during the workflow
-execution are not the same. Therefore, any file created in the Jupyter notebook
-will not be available in the workflow.
+NaaVRE provides three ways to store data. Choosing the right storage depends on the trade-offs between data lifetime and access speed.
 
+Storage Type            |	Suitable For...	| Lifetime |	Speed
+------------------------|----------------|----------|--------------
+Within workflow component storage |	Files used in one Jupyter notebook cell / workflow component.	| Kept during the execution of the component. |	Fastest
+Between workflow component storage | Passing data between workflow components. |	Kept during the workflow run. |	Fast
+Cloud storage           |	Saving workflow output.	| Persistent.	| Slower
 
-## Example
+### Within workflow component storage
+This storage is for intermediate files created and used within a single workflow component.
+If you use the NaaVRE containerizer to turn a Jupyter cell into a component, files written to the current directory (e.g., `./temp.csv`) are private to that step.
+They are not accessible to other components and will be deleted once the step finishes.
 
-To read or write file in NaaVRE, you should first upload it to the external storage.
-Then you should write the relevant code in the Jupyter notebook to read the file
-process it and write the results back to the external storage.
-For example to read a file from MinIO/S3, in Python you can use the following code:
+:::note
+Keeping data in a variable (in RAM) is always faster than writing to disk. Only write to a file when using it in the same Jupyter cell if your specific tool requires a file path as input.
+:::
+
+### Between workflow component storage
+This storage is meant to pass files between components in a workflow. NaaVRE clears this storage automatically once the workflow finishes.
+Use this for large intermediate datasets that you don't need to keep once the workflow finishes, as it is faster than cloud storage.
+- Path: `/tmp/data/your_file.csv`
+- Guide: [The NaaVRE Interface - Managing files in workflows](../../NaaVRE_Interface/#managing-files-in-workflows)
+
+### Cloud storage - Workflow output storage
+This storage is suitable for workflow output, logs, and metadata you want to access after the workflow is done.
+Files saved in cloud storage are kept when the workflow is done.
+NaaVRE provides integrated cloud storage, but you can also bring your own cloud storage.
+
+#### Integrated Cloud Storage (small/medium files)
+Use the following built-in folders in your File Explorer for metadata and small result sets:
+- /home/jovyan/Cloud Storage/naa-vre-user-data (Read/Write): Your personal "Cloud Drive."
+- /home/jovyan/Cloud Storage/naa-vre-public (Read-Only): You can not write files to this folder, only read from it.
+It is meant for input datasets and configuration files that all users should be able to use in their workflows.
+
+![Cloud storage](./images/cloud_storage.png)
+
+Python example:
+```python
+import pandas as pd
+dataframe = pd.DataFrame()
+dataframe.to_csv("/home/jovyan/Cloud Storage/naa-vre-user-data/dummy_results.csv", index=False)
+```
+
+R example:
+```R
+write.csv(data.frame(), file = "/home/jovyan/Cloud Storage/naa-vre-user-data/dummy_results.csv")
+```
+
+#### External Cloud Storage (large datasets)
+For "Big Data" (i.e. multiple gigabytes), do not use the integrated folders. Instead, connect directly to external providers.
+
+For example, to read a file from MinIO/S3, in Python you can use the following code:
 
 ```python
 # Configuration (do not containerize this cell)
