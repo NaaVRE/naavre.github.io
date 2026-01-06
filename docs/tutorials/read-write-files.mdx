@@ -1,34 +1,38 @@
                               # Reading and Writing Files in NaaVRE
 
-In NaaVRE there are three ways to store data. When to pick which storage depends on a trade-off between the lifetime and speed.
+NaaVRE provides three ways to store data. Choosing the right storage depends on the trade-offs between data lifetime and access speed.
 
 Storage Type            |	Suitable For...	| Lifetime |	Speed
 ------------------------|----------------|----------|--------------
-Intra-Component Storage |	Files used in one Jupyter notebook cell / workflow step.	| During workflow component execution. |	Fastest
-Inter-Component Storage | Passing data between workflow step. |	During workflow run. |	Fast
-Cloud Storage           |	Saving final results and metadata.	| Permanent.	| Slower
+Within workflow component storage |	Files used in one Jupyter notebook cell / workflow component.	| Kept during the execution of the component. |	Fastest
+Between workflow component storage | Passing data between workflow components. |	Kept during the workflow run. |	Fast
+Cloud storage           |	Saving workflow output.	| Persistent.	| Slower
 
-### Intra-Component Storage
-Suitable for: Intermediate files created and used only within the same Jupyter notebook cell. The NaaVRE containerizer turns jupyter notebook cells into single workflow components. If you write a file to your current directory (e.g. `/temp.csv`),
-it is only available within the same workflow component in which it was stored.
+### Within workflow component storage
+This storage is for intermediate files created and used within a single workflow component.
+If you use the NaaVRE containerizer to turn a Jupyter cell into a component, files written to the current directory (e.g., `./temp.csv`) are private to that step.
+They are not accessible to other components and will be deleted once the step finishes.
 
 :::note
 Keeping data in a variable (in RAM) is always faster than writing to disk. Only write to a file when using it in the same Jupyter cell if your specific tool requires a file path as input.
 :::
 
-### Inter-Component Storage
-Suitable for: Passing a file between components in a workflow. NaaVRE clears this storage automatically once the workflow finishes.
-Use this for large intermediate datasets that you don't need to keep once the workflow finishes, as it is significantly faster than cloud storage.
+### Between workflow component storage
+This storage is meant to pass files between components in a workflow. NaaVRE clears this storage automatically once the workflow finishes.
+Use this for large intermediate datasets that you don't need to keep once the workflow finishes, as it is faster than cloud storage.
 - Path: `/tmp/data/your_file.csv`
 - Guide: [The NaaVRE Interface - Managing files in workflows](../../NaaVRE_Interface/#managing-files-in-workflows)
 
-### Persistent Cloud Storage (Workflow output)
-Suitable for: Final results, logs, and metadata you want to access after the workflow is done. Unlike local storage, Cloud Storage is "mounted" to every part of the lab. Files saved here are permanent.
+### Cloud storage - Workflow output storage
+This storage is suitable for workflow output, logs, and metadata you want to access after the workflow is done.
+Files saved in cloud storage are kept when the workflow is done.
+NaaVRE provides integrated cloud storage, but you can also bring your own cloud storage.
 
 #### Integrated Cloud Storage (small/medium files)
-Use the built-in folders in your File Explorer for metadata and small result sets.
-- naa-vre-user-data (Read/Write): Your personal "Cloud Drive."
-- naa-vre-public (Read-Only): You can not write files to this folder, only read from it. It is meant for datasets and configuration files that all users should be able to read.
+Use the following built-in folders in your File Explorer for metadata and small result sets:
+- /home/jovyan/Cloud Storage/naa-vre-user-data (Read/Write): Your personal "Cloud Drive."
+- /home/jovyan/Cloud Storage/naa-vre-public (Read-Only): You can not write files to this folder, only read from it.
+It is meant for input datasets and configuration files that all users should be able to use in their workflows.
 
 ![Cloud storage](./images/cloud_storage.png)
 
@@ -47,7 +51,7 @@ write.csv(data.frame(), file = "/home/jovyan/Cloud Storage/naa-vre-user-data/dum
 #### External Cloud Storage (large datasets)
 For "Big Data" (i.e. multiple gigabytes), do not use the integrated folders. Instead, connect directly to external providers.
 
-For example to read a file from _MinIO/S3_, in _Python_ you can use the following code:
+For example, to read a file from MinIO/S3, in Python you can use the following code:
 
 ```python
 # Configuration (do not containerize this cell)
