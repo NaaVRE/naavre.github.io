@@ -84,8 +84,8 @@ const config: Config = {
               href: '/docs/tutorials'
             },
             {
-              label: 'The NaaVRE interface',
-              href: '/docs/NaaVRE_Interface'
+              label: 'NaaVRE documentation',
+              href: '/docs/NaaVRE_documentation'
             }
           ]
         },
