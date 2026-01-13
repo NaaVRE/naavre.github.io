@@ -90,19 +90,11 @@ const config: Config = {
           ]
         },
         {
-          title: 'NaaVRE collaborative virtual labs',
+          title: 'NaaVRE',
           items: [
             {
-              label: 'Open Lab',
-              href: 'https://staging.demo.naavre.net/vreapp/vlabs/openlab'
-            },
-            {
-              label: 'Laserfarm',
-              href: 'https://staging.demo.naavre.net/vreapp/vlabs/laserfarm'
-            },
-            {
-              label: 'Vol2bird',
-              href: 'https://staging.demo.naavre.net/vreapp/vlabs/vol2bird'
+              label: 'Collaborative virtual labs',
+              href: 'https://beta.naavre.net/vreapp'
             }
           ]
         },
