@@ -14,8 +14,8 @@ const config: Config = {
   baseUrl: process.env.BASE_URL || '',
 
   // GitHub pages deployment config.
-  organizationName: 'QCDIS',
-  projectName: 'NaaVRE',
+  organizationName: 'NaaVRE',
+  projectName: 'naavre.github.io',
   deploymentBranch: 'gh-pages',
   trailingSlash: true,
 
@@ -63,7 +63,7 @@ const config: Config = {
           label: 'Documentation'
         },
         {
-          href: 'https://github.com/QCDIS/NaaVRE',
+          href: 'https://github.com/NaaVRE',
           label: 'GitHub',
           position: 'right'
         }
@@ -103,7 +103,7 @@ const config: Config = {
           items: [
             {
               label: 'GitHub',
-              href: 'https://github.com/QCDIS/NaaVRE'
+              href: 'https://github.com/NaaVRE'
             },
             {
                 label: 'Get in touch',
