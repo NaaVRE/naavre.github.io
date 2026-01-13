@@ -14,8 +14,8 @@ const config: Config = {
   baseUrl: process.env.BASE_URL || '',
 
   // GitHub pages deployment config.
-  organizationName: 'QCDIS',
-  projectName: 'NaaVRE',
+  organizationName: 'NaaVRE',
+  projectName: 'naavre.github.io',
   deploymentBranch: 'gh-pages',
   trailingSlash: true,
 
@@ -63,7 +63,7 @@ const config: Config = {
           label: 'Documentation'
         },
         {
-          href: 'https://github.com/QCDIS/NaaVRE',
+          href: 'https://github.com/NaaVRE',
           label: 'GitHub',
           position: 'right'
         }
@@ -90,19 +90,11 @@ const config: Config = {
           ]
         },
         {
-          title: 'NaaVRE collaborative virtual labs',
+          title: 'NaaVRE',
           items: [
             {
-              label: 'Open Lab',
-              href: 'https://staging.demo.naavre.net/vreapp/vlabs/openlab'
-            },
-            {
-              label: 'Laserfarm',
-              href: 'https://staging.demo.naavre.net/vreapp/vlabs/laserfarm'
-            },
-            {
-              label: 'Vol2bird',
-              href: 'https://staging.demo.naavre.net/vreapp/vlabs/vol2bird'
+              label: 'Collaborative virtual labs',
+              href: 'https://beta.naavre.net/vreapp'
             }
           ]
         },
@@ -111,7 +103,7 @@ const config: Config = {
           items: [
             {
               label: 'GitHub',
-              href: 'https://github.com/QCDIS/NaaVRE'
+              href: 'https://github.com/NaaVRE'
             },
             {
                 label: 'Get in touch',

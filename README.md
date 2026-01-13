@@ -1,6 +1,6 @@
 # NaaVRE website
 
-Sources for the [NaaVRE website](https://qcdis.github.io/NaaVRE-website/), built using [Docusaurus](https://docusaurus.io/).
+Sources for the [NaaVRE website](https://naavre.github.io), built using [Docusaurus](https://docusaurus.io/).
 
 The documentation shown on the website is written in Markdown files located in [`doc/`](./docs).
 
