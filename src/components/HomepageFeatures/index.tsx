@@ -12,35 +12,34 @@ interface FeatureItem {
 }
 
 const FeatureList: FeatureItem[] = [
-  {
-    title: 'Turn Jupyter notebooks into reusable components',
-    Svg: require('@site/static/img/undraw_order_delivered_re_v4ab.svg').default,
-    description: (
-      <>
-        NaaVRE lets you containerize cells of Jupyter notebooks.
-        Use these reusable components to build workflows.
-      </>
-    )
-  },
-  {
-    title: 'Compose workflows and run them in the cloud',
-    Svg: require('@site/static/img/undraw_abstract_re_l9xy.svg').default,
-    description: (
-      <>
-        NaaVRE lets you compose workflows and run them into a cloud environment,
-        with different parameters or input data.
-      </>
-    )
-  },
-  {
-    title: 'Find, reuse and share research assets',
-    Svg: require('@site/static/img/undraw_teamwork_hpdk.svg').default,
-    description: (
-      <>
-        Find notebooks, containerized cells, workflows and datasets to run your own experiments in NaaVRE.
-      </>
-    )
-  }
+    {
+        title: 'Share digital assets with collaborators',
+        Svg: require('@site/static/img/undraw_teamwork_hpdk.svg').default,
+        description: (
+          <>
+            In NaaVRE you can share source code, models, workflows and analysis results with your team and community.
+          </>
+        )
+    },
+    {
+        title: 'Turn source code from Jupyter notebooks into workflow components',
+        Svg: require('@site/static/img/undraw_order_delivered_re_v4ab.svg').default,
+        description: (
+          <>
+            NaaVRE lets you create workflow components from Jupyter notebook cells and use these components to build workflows.
+          </>
+        )
+    },
+    {
+        title: 'Run your workflows in the cloud',
+        Svg: require('@site/static/img/undraw_abstract_re_l9xy.svg').default,
+        description: (
+          <>
+            Execute workflows in a scalable cloud environment with configurable input and parameters.
+          </>
+        )
+    },
+
 ]
 
 function Feature ({ title, Svg, description }: FeatureItem): React.ReactElement {
