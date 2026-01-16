@@ -21,6 +21,8 @@ Where possible, the following should be done while building the virtual lab:
   * Create a directory for documentation of the virtual lab.
     * Track the documentation with version control.
   * Start each cell in a notebook with a title.
+* Testing
+  * Find or create small sample datasets that allow you to run the workflow in a short period of time to ensure that you can test the entire workflow frequently.
 * Security
   * Make sure personal tokens for APIs do not end up in version control. ToDo VLIC: Guideline for secret management [#276](https://github.com/QCDIS/projects_overview/issues/276).
 * Versioning
@@ -29,7 +31,7 @@ Where possible, the following should be done while building the virtual lab:
   * Prepare the data for scientific experiments.
   * Store data that is only read by the virtual lab in an external catalogue and use an API to access this data.
 * Infrastructure
-  * Perform a benchmark to check the storage and computing needs for the virtual lab.
+  * Perform a benchmark to check the storage and computing needs for the virtual lab: Run the workflow without parallel processing for about an hour to get an estimate of the amount of time needed to process all you need when the workflow is parallelized.
   * Arrange the storage and computing resources for running the scientific scenario in the virtual lab.
 * Parallelization
   * Parallelize the execution of the parts of the code where this is useful. A tutorial is available [here](https://github.com/QCDIS/lifewatch-notebooks/blob/main/NaaVRE-tutorials/splitting-classic.ipynb).
