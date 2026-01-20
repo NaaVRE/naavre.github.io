@@ -30,6 +30,9 @@
 }
 
 .markdown .footnotes h2,
-.markdown .footnotes hr {
+.markdown .footnotes h3,
+.markdown .footnotes hr,
+section.footnotes h2,
+section.footnotes hr {
   display: none;
 }
