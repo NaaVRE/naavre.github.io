@@ -106,8 +106,12 @@ const config: Config = {
               href: 'https://github.com/NaaVRE'
             },
             {
-                label: 'Get in touch',
+                label: 'Plan your own virtual lab',
                 href: 'https://docs.google.com/forms/d/e/1FAIpQLSdbF6lrAYUx2CH7oxpjKWAa3mH2bSIPKJB5BkRa3xZStTcJOg/viewform'
+            },
+            {
+                label: 'Get in touch',
+                href: 'mailto:vlic@lifewatch.eu'
             }
           ]
         }
