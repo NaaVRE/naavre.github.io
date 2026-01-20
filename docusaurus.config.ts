@@ -80,7 +80,7 @@ const config: Config = {
               href: '/docs/about'
             },
             {
-              label: 'Getting started',
+              label: 'Get started with the tutorial',
               href: '/docs/tutorials'
             },
             {
