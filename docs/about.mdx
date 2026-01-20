@@ -6,7 +6,7 @@ title: About NaaVRE
 import ConceptualArchitectureImg from './images/Conceptual_Architecture.svg'
 
 NaaVRE (Notebook as a Virtual Research Environment) is a user-centric platform that supports the full research lifecycle through customizable Virtual Labs.
-It streamlines collaboration by providing unified access to data, models, and software, while removing the complexity of creating and executing research workflows on the cloud.<sup>[1]</sup>
+It streamlines collaboration by providing unified access to data, models, and software, while removing the complexity of creating and executing research workflows on the cloud[^1][^2].
 
 <ConceptualArchitectureImg
   alt={"NaaVRE conceptual architecture diagram"}
@@ -15,45 +15,29 @@ It streamlines collaboration by providing unified access to data, models, and so
 
 <br />
 <br />
+
 ## Documentation
-This section contains a step-by-step tutorial that helps outline the capabilities of the Virtual Research Environment (VRE) and more elaborate documentation.
-
-* [NaaVRE Tutorial](docs/tutorials)
-* [NaaVRE Documentation](docs/NaaVRE_documentation)
-
+We recommend that new users begin with the [NaaVRE tutorial](docs/tutorials). For a comprehensive guide to advanced features, please refer to our [detailed documentation](docs/NaaVRE_documentation).
 
 ## Notebook as a Virtual Research Environment (NaaVRE) Platform
 
 The LifeWatch NaaVRE platform is a Platform as a Service (PaaS) that allows users to create collaborative Virtual Labs with customized runtime libraries, user interfaces, and workflow building blocks, and to conduct research activities in specific domains.
 
-### Main Features
-
-* A user-friendly interface to the LifeWatch VRE platform
-* Overview of the running Virtual Labs (VLs)
-* Overview of executed workflows
-* Community-based data products catalog
-* Community-based geographical data products catalog
-* Collaboration tools
-  * Git integration with [jupyterlab-git](https://pypi.org/project/jupyterlab-git/)
-
-
 ## Collaborative Virtual Labs
-
-A collaborative virtual lab provides a customized profile, which allows a domain user to create a virtual lab instance on the NaaVRE platform.
-All virtual lab instances within NaaVRE benefit from a shared ecosystem, enabling the exchange of data, workflows, and research assets among team members.
+All users and virtual labs within NaaVRE benefit from a shared ecosystem, enabling the exchange of data, workflows, and research assets among team members.
 NaaVRE is based on a familiar Jupyter environment with specially developed extensions for containerizing Notebook cells, composing and executing workflows, and searching and sharing research objects.
 By leveraging Jupyter Notebooks, a standard in data science, NaaVRE ensures a low barrier to entry while providing cloud-ready capabilities for advanced research.
 
 ### Main Features
-* Containerization of cells
-* Workflow composition based on containerized cells
-* Execution of containerized cells on a workflow engine
-* Search for notebooks
+* Sharing of Notebooks, workflow components and workflows with teams and communities
+* Containerization of Jupyter notebook cells into workflow components
+* Composition of workflows
+* Execution on a workflow engine
 
 ### Supported Kernels
 * Python
 * Rscript
 
 ### Publications
-1. Zhao, Z., Koulouzis, S., Bianchi, R., Farshidi, S., Shi, Z., Xin, R., Wang, Y., Li, N., Shi, Y., Timmermans, J., Kissling, W.D.: Notebook-as-a-VRE (NaaVRE): From private notebooks to a collaborative cloud virtual research environment. Softw Pract Exp. spe.3098 (2022). https://doi.org/10.1002/spe.3098.
-2. Zhao, Z., Kissling, W.D., Hengeveld, G.M., Athanasiadis, I., Soetaert, K., Hof, A.: A Virtual Lab Maturity Model for Guiding the Co-Development of Advanced Virtual Research Environments. 2025 IEEE Int. Conf. Serv. Oriented Syst. Eng. (SOSE). pp. 20-26 (2025). https://doi.org/10.1109/SOSE67019.2025.00007.
+[^1]: Zhao, Z., Koulouzis, S., Bianchi, R., Farshidi, S., Shi, Z., Xin, R., Wang, Y., Li, N., Shi, Y., Timmermans, J., Kissling, W.D.: Notebook-as-a-VRE (NaaVRE): From private notebooks to a collaborative cloud virtual research environment. Softw Pract Exp. spe.3098 (2022). https://doi.org/10.1002/spe.3098.
+[^2]: Zhao, Z., Kissling, W.D., Hengeveld, G.M., Athanasiadis, I., Soetaert, K., Hof, A.: A Virtual Lab Maturity Model for Guiding the Co-Development of Advanced Virtual Research Environments. 2025 IEEE Int. Conf. Serv. Oriented Syst. Eng. (SOSE). pp. 20-26 (2025). https://doi.org/10.1109/SOSE67019.2025.00007.
