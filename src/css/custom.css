@@ -29,11 +29,7 @@
   --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.3);
 }
 
-.footnotes h2#footnote-label {
-  visibility: hidden;
-}
-.footnotes h2#footnote-label::before {
-  content: "References";
-  visibility: visible;
-  display: block;
+.markdown .footnotes h2,
+.markdown .footnotes hr {
+  display: none;
 }
