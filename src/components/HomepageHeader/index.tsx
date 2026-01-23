@@ -24,6 +24,11 @@ export default function HomepageHeader (): React.ReactElement {
             to="/docs/tutorials">
             Follow the tutorial
           </Link>
+          <Link
+            className="button button--secondary button--lg"
+            to="https://beta.naavre.net">
+            Open NaaVRE
+          </Link>
         </div>
       </div>
     </header>

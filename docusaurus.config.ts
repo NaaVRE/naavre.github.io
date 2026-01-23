@@ -93,7 +93,7 @@ const config: Config = {
           title: 'NaaVRE',
           items: [
             {
-              label: 'Collaborative virtual labs',
+              label: 'Open NaaVRE',
               href: 'https://beta.naavre.net/vreapp'
             }
           ]
@@ -106,7 +106,7 @@ const config: Config = {
               href: 'https://github.com/NaaVRE'
             },
             {
-                label: 'Plan your own virtual lab',
+                label: 'Propose your own virtual lab',
                 href: 'https://docs.google.com/forms/d/e/1FAIpQLSdbF6lrAYUx2CH7oxpjKWAa3mH2bSIPKJB5BkRa3xZStTcJOg/viewform'
             },
             {
