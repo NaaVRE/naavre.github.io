@@ -105,6 +105,8 @@ If the Launcher page is not open, click on the new tab button or 'File->New->New
 ![Launcher](../NaaVRE_documentation/images/n-a-a-vre_interface_1.png)
 
 ## From notebook to workflow
+Users can iteratively develop their data analysis and simulation code in NaaVRE by writing and running code in a Jupyter notebook.
+Once the code writing is done and it runs in the notebook, users can create workflows from their code to increase shareability and scalability.
 
 ### Create a notebook
 
@@ -186,7 +188,12 @@ To compose a workflow open a new tab and click on the 'Experiment Manager' icon.
 
 ![Experimenter Manager](./images/8_workflow_2.png)
 
-Drag and drop the two cells onto the canvas, as well as a 'splitter' cell.
+Drag and drop the two cells onto the canvas, as well as a 'splitter' workflow component.
+
+:::note
+The 'splitter' component splits the items from a list or array into its elements to parallelize computation in the next workflow component.
+See the [Experiment Manager documentation](./../NaaVRE_documentation/experiment-manager/#special-cells) for more information.
+:::
 
 ![Experimenter Manager](./images/8_workflow_10.png)
 
