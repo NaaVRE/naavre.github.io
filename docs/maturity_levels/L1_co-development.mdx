@@ -24,9 +24,10 @@ Where possible, the following should be done while building the virtual lab:
 * Testing
   * Find or create small sample datasets that allow you to run the workflow in a short period of time to ensure that you can test the entire workflow frequently.
 * Security
-  * Make sure personal tokens for APIs do not end up in version control. ToDo VLIC: Guideline for secret management [#276](https://github.com/QCDIS/projects_overview/issues/276).
-* Versioning
+  * Make sure personal tokens for APIs do not end up in version control. See [Secrets Provider](./../../NaaVRE_documentation/secrets-provider).
+* Packages & Libraries
   * Pin versions of used software and libraries in the dependencies to prevent compatibility problems when updates occur to the packages and software.
+  * Prioritize open-source software to ensure long-term reproducibility. Avoid proprietary 'free' tools to mitigate the risk of future licensing costs and technical debt.
 * Data
   * Prepare the data for scientific experiments.
   * Store data that is only read by the virtual lab in an external catalogue and use an API to access this data.
