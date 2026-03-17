@@ -9,7 +9,11 @@ import icosVideoURL from './videos/NaaVREICOSDemo.mp4';
 
 # Get started with the NaaVRE tutorial
 
-The aim of this tutorial is to discover the basic functionalities of NaaVRE: logging in, starting your virtual lab, and creating a workflow from a notebook:
+The aim of this tutorial is to discover the basic functionalities of NaaVRE: logging in, starting your virtual lab, creating a workflow from a notebook and running the workflow.
+
+If you want to understand better why to use a virtual research environment, we recommend reading [the summary of VRE's functionalities](./../about/#notebook-as-a-virtual-research-environment-naavre-platform).
+
+Content of the tutorial:
 
 <TOCInline toc={toc} />
 
@@ -71,12 +75,8 @@ For this tutorial, select the 'NaaVRE Open Lab'.
 When in the VL you can see:
 
 * A description of the VL
-* The instances started by other users
+* The instances (virtual lab sessions) started by other users
 * A button to start your own instance of the VL
-* Assets from the Virtual lab:
-  * Workflow runs 
-  * Data products
-  * Geographical data products
 
 ![Pick VRE](./images/3_pick_vre_2.png)
 
@@ -96,20 +96,21 @@ Your virtual lab instance starts up.
 
 ### The NaaVRE interface in Jupyter Lab
 
-You now see the NaaVRE interface in Jupyter lab.
-(You can read more details [here](../NaaVRE_documentation)).
-
-![Launcher](../NaaVRE_documentation/images/n-a-a-vre_interface_1.png)
-
-## From notebook to workflow
-
-### Create a notebook
-
-Create a new Python or a R notebook by clicking on the 'Python 3' or the 'R' icon under 'Notebook' on the launcher tab.
+You now see the NaaVRE interface in Jupyter lab. A detailed description of NaaVRE fucntionalities is available on the [NaaVRE documentation page](../NaaVRE_documentation).
 
 :::note
 If the Launcher page is not open, click on the new tab button or 'File->New->New Launcher'.
 :::
+
+![Launcher](../NaaVRE_documentation/images/n-a-a-vre_interface_1.png)
+
+## From notebook to workflow
+Users can iteratively develop their data analysis and simulation code in NaaVRE by writing and running code in a Jupyter notebook.
+Once the code writing is done and it runs in the notebook, users can create workflows from their code to increase shareability and scalability.
+
+### Create a notebook
+
+Create a new Python or a R notebook by clicking on the 'Python 3' or the 'R' icon under 'Notebook' on the launcher tab.
 
 
 ![Create notebook](./images/6_create_notebook_1.png)
@@ -157,11 +158,11 @@ On the left panel, you will see a preview of the containerized cell with the det
 
 ![Containerize cells](./images/7_containerize_2.png)
 
-Set the variable types to 'List'. For Python notebooks, type is inferred automatically.
+In most cases type is inferred automatically. If it is not, select the appropriate type ("list" for the example code).
 
 ![Containerize cells](./images/7_containerize_3.png)
 
-Select the base image for the containerized cell ('r' or 'python' depending on your notebook).
+Select the base image (the cloud equivalent to a local environement) for the containerized cell ('r' or 'python' depending on your notebook).
 
 ![Containerize cells](./images/7_containerize_4.png)
 
@@ -187,7 +188,12 @@ To compose a workflow open a new tab and click on the 'Experiment Manager' icon.
 
 ![Experimenter Manager](./images/8_workflow_2.png)
 
-Drag and drop the two cells onto the canvas, as well as a 'splitter' cell.
+Drag and drop the two cells onto the canvas, as well as a 'splitter' workflow component.
+
+:::note
+The 'splitter' component splits the items from a list or array into its elements to parallelize computation in the next workflow component.
+See the [Experiment Manager documentation](./../NaaVRE_documentation/experiment-manager/#special-cells) for more information.
+:::
 
 ![Experimenter Manager](./images/8_workflow_10.png)
 
@@ -225,3 +231,6 @@ This will take you to the workflow engine page where you can see the progress of
 :::note
 The first time you open the workflow engine, select the 'single sign-on' login, and close the welcome message.
 :::
+
+## Summary
+You now have a broad overview of workflow creation and workflow running in NaaVRE. To get a better understanding and find out more about other functionalities, you can check the [NaaVRE documentation](./../NaaVRE_documentation/).
