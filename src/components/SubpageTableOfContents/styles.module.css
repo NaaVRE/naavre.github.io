@@ -1,0 +1,29 @@
+.tocInline {
+  margin-top: 1.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.tableOfContents {
+  list-style-type: disc;
+  padding-left: 2rem;
+  font-size: 1rem;
+}
+
+.tableOfContentsItem {
+  margin-bottom: 0.25rem;
+}
+
+.tableOfContentsLink {
+  border-left: none;
+  padding-left: 0;
+  color: var(--ifm-color-primary);
+  text-decoration: none;
+}
+
+.tableOfContentsLink:hover {
+  text-decoration: underline;
+}
+
+.tableOfContentsLink:visited {
+  color: var(--ifm-color-primary);
+}
