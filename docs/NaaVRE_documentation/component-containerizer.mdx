@@ -1,10 +1,14 @@
                               # Component Containerizer
 
 The component containerizer enables you to turn Jupyter Notebook cells into workflow components.
+The containerizer analyzes the code in the cell together with the code in all other cells in the notebook
+to determine the input and output of the workflow component, as well as the libraries and parameters in use.
 
 ![Component Containerizer](images/component_containerizer_1.png)
 
 The 'Cell Preview' panel shows a preview of the cell that is currently selected including its name, inputs and outputs.
+These inputs and outputs are detected by analyzing the code in all cells,
+to see from with cells variables originate and in which cells the variables are used.
 Under the 'Cell Preview' panel there a list of the inputs and outputs of the cell and their types. The types are needed
 to be filled in by the user when containerizing a cell. Currently, the supported types are:
 * String
