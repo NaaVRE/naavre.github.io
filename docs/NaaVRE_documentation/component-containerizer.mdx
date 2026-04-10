@@ -42,6 +42,15 @@ Special variables can be used in the cell code. Their name should contain one of
 Notice in the image above that the `conf_b` variable is declared in the first cell and used in the second and third cell.
 However, the `conf_b` is not showing up as input in the second and third cell.
 
+### Controlling input and output of workflow components
+The code analyzer identifies the inputs of workflow components by examining how variables within a cell interact with:
+- Variable initialization in other cells
+- Variable usage in other cells
+
+If a workflow component created in a Jupyter notebook should be provide input to a workflow component created in a different Jupyter notebook,
+we recommend to add a dummy cell at the bottom of the notebook
+to make the code analyzer recognize that the variable should be identified as output of the cell above.
+
 ### Overriding definition of cell inputs and outputs
 
 :::warning
