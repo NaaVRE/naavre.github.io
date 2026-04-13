@@ -1,10 +1,14 @@
                               # Component Containerizer
 
 The component containerizer enables you to turn Jupyter Notebook cells into workflow components.
+The containerizer analyzes the code in the cell together with the code in all other cells in the notebook
+to determine the input and output of the workflow component, as well as the libraries and parameters in use.
 
 ![Component Containerizer](images/component_containerizer_1.png)
 
 The 'Cell Preview' panel shows a preview of the cell that is currently selected including its name, inputs and outputs.
+These inputs and outputs are detected by analyzing the code in all cells,
+to see from with cells variables originate and in which cells the variables are used.
 Under the 'Cell Preview' panel there a list of the inputs and outputs of the cell and their types. The types are needed
 to be filled in by the user when containerizing a cell. Currently, the supported types are:
 * String
@@ -15,8 +19,7 @@ to be filled in by the user when containerizing a cell. Currently, the supported
 The maximum size for combined workflow component input is 65,000 characters. To process larger objects, store the data in a file and pass the filepath between components instead.
 
 Under the 'Inputs' and 'Outputs' there is the 'Base Image' selection. This is the base image that will be used to build
-the container. The default base image is 'miniconda3'. The user can select a different base image from the drop down.
-
+the container.
 
 ### Special Variables
 
@@ -38,6 +41,28 @@ Special variables can be used in the cell code. Their name should contain one of
 
 Notice in the image above that the `conf_b` variable is declared in the first cell and used in the second and third cell.
 However, the `conf_b` is not showing up as input in the second and third cell.
+
+### Setting input and output of workflow components
+The code analyzer identifies the inputs of workflow components by examining how variables within the selected Jupyter Notebook cell interact with variable initialization in other cells and variable usage in other cells.
+```
+# Cell1: Set variable
+var1 = "In this cell q variable 'var1' is created, which is being used in Cell2"
+```
+```
+# Cell2: Use variable
+print(var1) # By using 'var1' in this notebook cell the component containerizer will recognize 'var1' as output of Cell1 and input of Cell2.
+```
+
+#### Connecting workflow components across Jupyter Notebooks
+When building a workflow that spans multiple Jupyter notebooks, variables defined in one notebook are not automatically recognized as inputs or outputs in another.
+This can lead to issues with the code analyzer, which relies on variable usage within the same notebook to identify output and input.
+
+To ensure variables are recognized as outputs (and thus available as inputs to other workflow components),
+add a dummy cell at the end of the notebook that explicitly uses the variable. This signals to the code analyzer that the variable is an intended output.
+
+:::note
+A notebook cell with the same variable name as both input and output is currently not supported.
+:::
 
 ### Overriding definition of cell inputs and outputs
 
