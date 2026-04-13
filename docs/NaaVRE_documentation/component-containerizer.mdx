@@ -42,14 +42,27 @@ Special variables can be used in the cell code. Their name should contain one of
 Notice in the image above that the `conf_b` variable is declared in the first cell and used in the second and third cell.
 However, the `conf_b` is not showing up as input in the second and third cell.
 
-### Controlling input and output of workflow components
-The code analyzer identifies the inputs of workflow components by examining how variables within a cell interact with:
-- Variable initialization in other cells
-- Variable usage in other cells
+### Setting input and output of workflow components
+The code analyzer identifies the inputs of workflow components by examining how variables within the selected Jupyter Notebook cell interact with variable initialization in other cells and variable usage in other cells.
+```
+# Cell1: Set variable
+var1 = "In this cell q variable 'var1' is created, which is being used in Cell2"
+```
+```
+# Cell2: Use variable
+print(var1) # By using 'var1' in this notebook cell the component containerizer will recognize 'var1' as output of Cell1 and input of Cell2.
+```
 
-If a workflow component created in a Jupyter notebook should be provide input to a workflow component created in a different Jupyter notebook,
-we recommend to add a dummy cell at the bottom of the notebook
-to make the code analyzer recognize that the variable should be identified as output of the cell above.
+#### Connecting workflow components across Jupyter Notebooks
+When building a workflow that spans multiple Jupyter notebooks, variables defined in one notebook are not automatically recognized as inputs or outputs in another.
+This can lead to issues with the code analyzer, which relies on variable usage within the same notebook to identify output and input.
+
+To ensure variables are recognized as outputs (and thus available as inputs to other workflow components),
+add a dummy cell at the end of the notebook that explicitly uses the variable. This signals to the code analyzer that the variable is an intended output.
+
+:::note
+A notebook cell with the same variable name as both input and output is currently not supported.
+:::
 
 ### Overriding definition of cell inputs and outputs
 
