@@ -18,7 +18,7 @@ export default function OpenAlexCitations({ workId }: OpenAlexCitationsProps) {
     // OpenAlex API to fetch citations for the work
     async function fetchCitations() {
       try {
-        const response = await fetch(`https://api.openalex.org/works?filter=cites:${workId}&sort=publication_date:desc`);
+        const response = await fetch(`https://api.openalex.org/works?filter=cites:${workId}&sort=publication_date:desc&select=doi,display_name,publication_year`);
         if (!response.ok) {
           throw new Error(`Failed to fetch data: ${response.status}`);
         }
@@ -43,11 +43,12 @@ export default function OpenAlexCitations({ workId }: OpenAlexCitationsProps) {
       {citations.length > 0 ? (
         <ul>
           {citations.map((citation, index) => (
-            <li key={index}>
-              <a href={citation.doi} target="_blank" rel="noopener noreferrer">
-                {citation.display_name}
-              </a>
-            </li>
+              <li key={index}>
+                  {`${citation.display_name} (${citation.publication_year}) `}
+                  <a href={citation.doi} target="_blank" rel="noopener noreferrer">
+                    {citation.doi}
+                  </a>
+                </li>
           ))}
         </ul>
       ) : (
