@@ -1,0 +1,97 @@
+                              # Software environment
+
+import LinkButton from '@site/src/components/LinkButton';
+
+NaaVRE virtual labs provide a pre-configured software environment that powers:
+- Jupyter notebook kernels (for interactive coding).
+- Workflow components (when notebook cells are containerized).
+
+### Package Management
+The environment uses:
+- Conda Forge as the primary package manager. Conda Forge provides pre-built, compatible packages, ensuring reproducibility across platforms.
+- Dockerfiles for system libraries and packages not available in Conda Forge. Some low-level or system-specific dependencies require direct installation via Docker.
+
+### Inspecting the existing Conda environment
+To list the conda environment, do the following in a virtual lab:
+
+Open a terminal through the Launcher.
+
+Set conda as a source:
+```
+source /opt/conda/etc/profile.d/conda.sh
+```
+Find the name of the conda environment:
+```
+conda info --envs
+
+# conda environments:
+#
+base                 * /opt/conda
+vanilla                /opt/conda/envs/vanilla
+```
+In the example above the name is "vanilla".
+
+Activate the conda environment:
+```
+conda activate vanilla
+```
+As a result, you should see the name of the environment at the start of the line:
+```
+(vanilla) jovyan@jupyter-lab-[lab- and username, current path]$
+```
+
+List the packages in the conda environment:
+```
+(vanilla) jovyan@jupyter-lab-[lab- and username, current path]$ conda export --from-history
+name: vanilla
+channels:
+  - conda-forge
+dependencies:
+  - r-jsonlite=1.9.1
+  - r-optparse=1.7.5
+  - ipykernel=6.29.5
+ ...
+```
+Including "--from-history" lists explicitly installed packages. Removing "--from-history" lists all installed packages including dependencies.
+
+### Updating the environment
+You can temporarily install packages yourself, or ask the NaaVRE DevOps team to permanently update your software environment in case you have your own virtual lab.
+
+### Temporary installation
+To install missing packages for the current virtual lab session only, use the following commands:
+
+#### Python (pip)
+```python
+!pip install scipy
+```
+#### R (install.packages)
+```R
+install.packages("pracma")
+```
+
+:::note
+Packages installed this way will not persist after your virtual lab session ends.
+:::
+
+### Permanent installation
+To install packages permanently, we need to update the software environment of your virtual lab. This requires that you own a virtual lab.
+
+#### Step 1: Request you own virtual lab
+To become a virtual lab owner, propose your own virtual lab:
+
+<LinkButton
+to="https://docs.google.com/forms/d/e/1FAIpQLSdbF6lrAYUx2CH7oxpjKWAa3mH2bSIPKJB5BkRa3xZStTcJOg/viewform?usp=dialog"
+label="Propose your own virtual lab"
+/>
+<br/>
+
+#### Step 2: Installation Methods
+NaaVRE uses Conda Forge to manage environments.
+Creation and updating of environments is done by the [virtual lab coordinator](./../maturity_levels/Virtual_lab_roles/Coordinator.mdx).
+Depending on the package, we will use one of the following methods:
+- Conda: Preferred for most packages.
+- CRAN/GitHub: Used for packages not available in Conda.
+- Dockerfiles: Required for system libraries or packages that cannot be installed via the above methods.
+
+You can help speed up the process by providing Conda environment files (e.g., environment.yml) and links to CRAN packages or GitHub repositories.
+
