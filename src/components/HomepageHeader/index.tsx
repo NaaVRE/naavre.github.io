@@ -29,6 +29,11 @@ export default function HomepageHeader (): React.ReactElement {
             to="https://beta.naavre.net">
             Open NaaVRE
           </Link>
+          <Link
+            className="button button--secondary button--lg"
+            to="https://beta.naavre.net/jupyter/hub/user-redirect/lab/tree/Virtual%20Labs/ECVs/Git%20public/EGU2026/step1.ipynb">
+            Open ECVs Virtual Lab
+          </Link>
         </div>
       </div>
     </header>
