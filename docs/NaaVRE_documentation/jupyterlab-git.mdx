@@ -1,13 +1,22 @@
                               # Jupyterlab-git
 
-All virtual labs have a Git integration using jupyterlab-git.
-To clone a repository you can follow the instructions from here: [jupyterlab-git](https://pypi.org/project/jupyterlab-git/).
-The `.gitignore` is recommended to at least contain the following:
-```gitignore
-.ipynb_checkpoints
-.env # The `.env` file is used by `SecretsProvider` to store the secrets and should therefore not be pushed to the repository.
-```
+Git can be used in virtual labs using the jupyterlab-git extension.
+
+![jupyterlab-git.png](./images/jupyterlab-git.png)
+
+Each virtual lab has a `My data` and `Git public` folder, e.g. `Virtual Labs/Open Lab/My data` and `Virtual Labs/Open Lab/Git public`.
+Use `My data` to store your assets, including source code and workflows.
+`Git public` contains the public assets available to anyone logging into the virtual lab. Do not save things you want to preserve in this folder.
+If you want to modify and save files from `Git public`, copy the files to `My data` first.
+
+To clone a git repository into your virtual lab, follow the [jupyterlab-git documentation](https://pypi.org/project/jupyterlab-git/) from the `My data folder`.
 Once you have cloned a repository and have write access to this repository, you can push changes to the repository using a [fine-grained token](https://github.com/settings/personal-access-tokens).
 This token can be set to only apply to the repository created for the content of the virtual lab and only needs the following repository permissions:
 - Read access to metadata
 - Read/write access to code
+
+Use a `.gitignore` to simplify only committing relevant files. We recommend a gitignore to at least contain the following:
+```gitignore
+.ipynb_checkpoints
+.env # The `.env` file is used by `SecretsProvider` to store the secrets and should therefore not be pushed to the repository.
+```
