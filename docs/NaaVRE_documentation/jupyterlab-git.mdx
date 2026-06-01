@@ -1,22 +1,42 @@
                               # Jupyterlab-git
 
-Git can be used in virtual labs using the jupyterlab-git extension.
+The JupyterLab-Git extension allows you to use Git directly in your virtual lab environment.
+
+### Folder structure
+Each virtual lab contains two dedicated folders:
+- My data (e.g., `Virtual Labs/Open Lab/My data`):
+  - Use this folder to store your personal assets, including source code and workflows.
+  - This is your workspace.
+- Git public (e.g., `Virtual Labs/Open Lab/Git public`):
+  - Contains public assets available to all users of the virtual lab.
+  - Do not save files here, as they may be overwritten or lost.
+  - If you want to modify files from Git public, copy them to `My data` first.
+
+### Cloning a Git repository
+To clone a Git repository into your virtual lab:
+1. Navigate to the `My data` folder in JupyterLab.
+2. Open the Git extension.
 
 ![jupyterlab-git.png](./images/jupyterlab-git.png)
 
-Each virtual lab has a `My data` and `Git public` folder, e.g. `Virtual Labs/Open Lab/My data` and `Virtual Labs/Open Lab/Git public`.
-Use `My data` to store your assets, including source code and workflows.
-`Git public` contains the public assets available to anyone logging into the virtual lab. Do not save things you want to preserve in this folder.
-If you want to modify and save files from `Git public`, copy the files to `My data` first.
+3. Click `Clone a repository`.
 
-To clone a git repository into your virtual lab, follow the [jupyterlab-git documentation](https://pypi.org/project/jupyterlab-git/) from the `My data folder`.
-Once you have cloned a repository and have write access to this repository, you can push changes to the repository using a [fine-grained token](https://github.com/settings/personal-access-tokens).
-This token can be set to only apply to the repository created for the content of the virtual lab and only needs the following repository permissions:
-- Read access to metadata
-- Read/write access to code
+### Pushing changes to a git repository
+If you have write access to the repository, you can push changes using a fine-grained GitHub personal access token:
+1. Generate a token in GitHub:
+   1. Go to GitHub personal access tokens.
+   2. Create a [fine-grained token](https://github.com/settings/personal-access-tokens) with the following minimum permissions for the repository:
+      1. Read access to metadata
+      2. Read and write access to code
+2. Use this token to authenticate when pushing changes from JupyterLab-Git.
 
-Use a `.gitignore` to simplify only committing relevant files. We recommend a gitignore to at least contain the following:
+### Recommended .gitignore
+To avoid committing unnecessary or sensitive files, use a `.gitignore` file in your repository. We recommend including at least the following:
 ```gitignore
+# Jupyter notebook checkpoints
 .ipynb_checkpoints
-.env # The `.env` file is used by `SecretsProvider` to store the secrets and should therefore not be pushed to the repository.
+
+# Environment variables (contains secrets)
+.env
 ```
+The .env file is used by SecretsProvider to store secrets and must not be committed to the repository.
