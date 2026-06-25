@@ -20,7 +20,6 @@ const config: Config = {
   trailingSlash: true,
 
   onBrokenLinks: 'throw',
-  onBrokenMarkdownLinks: 'warn',
 
   i18n: {
     defaultLocale: 'en',
@@ -45,6 +44,14 @@ const config: Config = {
       } satisfies Preset.Options
     ]
   ],
+
+  markdown: {
+      hooks: {
+          onBrokenMarkdownLinks: 'warn',
+          },
+    mermaid: true,
+  },
+  themes: ['@docusaurus/theme-mermaid'],
 
   themeConfig: {
     image: 'img/social-card.png',

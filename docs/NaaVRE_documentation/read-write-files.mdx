@@ -8,7 +8,7 @@ Within workflow component storage |	Files used in one Jupyter notebook cell / wo
 Between workflow component storage | Passing data between workflow components. |	Kept during the workflow run. |	Fast
 Cloud storage           |	Saving workflow output.	| Persistent.	| Slower
 
-### Within workflow component storage
+### Within workflow component storage {#Within-workflow-component-storage}
 This storage is for intermediate files created and used within a single workflow component.
 If you use the NaaVRE containerizer to turn a Jupyter cell into a component, files written to the current directory (e.g., `./temp.csv`) are private to that step.
 They are not accessible to other components and will be deleted once the step finishes.
@@ -17,13 +17,13 @@ They are not accessible to other components and will be deleted once the step fi
 Keeping data in a variable (in RAM) is always faster than writing to disk. Only write to a file when using it in the same Jupyter cell if your specific tool requires a file path as input.
 :::
 
-### Between workflow component storage
+### Between workflow component storage {#Between-workflow-component-storage}
 This storage is meant to pass files between components in a workflow. NaaVRE clears this storage automatically once the workflow finishes.
 Use this for large intermediate datasets that you don't need to keep once the workflow finishes, as it is faster than cloud storage.
 - Path: `/tmp/data/your_file.csv`
 - Guide: [The NaaVRE Interface - Managing files in workflows](../../NaaVRE_documentation/experiment-manager/#managing-files-in-workflows)
 
-### Cloud storage - Workflow output storage
+### Cloud storage - Workflow output storage {#Cloud-storage}
 Use this storage for workflow output, logs, and metadata you want to access after the workflow is done.
 NaaVRE provides integrated S3-compatible object storage, which has limited capacity and does not create back-ups.
 You can also provide and integrate with your own external cloud storage.
@@ -124,3 +124,75 @@ put_object(
 )
 
 ```
+
+### Passing files in a workflow
+In a NaaVRE workflow, variables are temporary, as they exist only for the duration of the workflow execution.
+Additionally, there is a size limit: objects passed between workflow components cannot exceed 65,000 characters.
+To make data persistent and handle larger datasets, workflows typically:
+- Store files in the final components of the workflow.
+- Pass files between components to share data.
+The flowchart below illustrates how files are passed in an example workflow.
+<br />
+In the example, two data sources are used: [Cloud storage](#Cloud-storage) and a third party data repository.
+- Workflow component 1: Retrieves File1.csv from cloud storage and stores File1.csv to [between workflow component storage](#Between-workflow-component-storage).
+- Workflow component 2: Retrieves File2.csv from a third party data repository and stores File2.csv to between workflow component storage.
+- Workflow component 3: Reads File1.csv and File2.csv from between workflow component storage and stores its output (File3.csv) there.
+- Workflow component 4: Reads File3.csv from between workflow component storage and stores its output (File4.csv) to cloud storage.
+
+After finishing the workflow, only File4.csv will remain.
+Additionally if the size of the data within a workflow component is too large for the working memory of the workflow component
+[within workflow component storage](#Within-workflow-component-storage) can be used.
+```mermaid
+graph TD;
+    %% Nodes
+    cloud_storage[(Cloud storage)]
+    subgraph Workflow
+        tmp_storage[(Between workflow component storage)]
+        comp1[Component 1]
+        comp2[Component 2]
+        comp3[Component 3]
+        comp4[Component 4]
+    end
+    data_repo[(Third party data repository)]
+
+    %% Edges
+    data_repo-->|File2.csv|comp2
+    cloud_storage-->|File1.csv|comp1
+    comp4-->|File4.csv|cloud_storage
+    comp1-->|File1.csv|tmp_storage
+    comp2-->|File2.csv|tmp_storage
+    comp3-->|File3.csv|tmp_storage
+    tmp_storage-->|File1.csv|comp3
+    tmp_storage-->|File2.csv|comp3
+    tmp_storage-->|File3.csv|comp4
+
+    %% Style
+    style data_repo fill:#ffdeb4, stroke:#808080
+```
+To handle the passing of the files in the previous example, the following output-input is exchanged between the workflow components:
+```mermaid
+graph TD;
+    %% Nodes
+    subgraph Workflow
+        comp1[Component 1]
+        comp2[Component 2]
+        comp3[Component 3]
+        comp4[Component 4]
+    end
+
+    %% Edges
+    comp1-->|'File1.csv'|comp3
+    comp2-->|'File2.csv'|comp3
+    comp3-->|'File3.csv'|comp4
+```
+Additionally, the following parameters are defined to create the filepaths:
+```
+# Parameters
+param_input1_filename = 'File1.csv'
+param_input2_filename = 'File2.csv'
+param_output_filename = 'File4.csv'
+param_workflow_folder = '/tmp/data'
+param_cloud_storage_folder = '/home/jovyan/Cloud Storage/naa-vre-user-data/'
+```
+In the example, workflow component 4 gets the filepath `{param_workflow_folder}/{file3}`.
+The variable `file3` with value `File3.csv` is passed as output-input from workflow component 3.
