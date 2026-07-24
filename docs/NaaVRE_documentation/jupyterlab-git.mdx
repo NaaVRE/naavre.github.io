@@ -13,6 +13,13 @@ Each virtual lab contains two dedicated folders:
   - If you want to modify files from Git public, copy them to `My data` first.
 
 ### Cloning a Git repository
+:::note
+Currently the Jupyterlab-git feature has a bug breaking the clonining of a repo using the user interface.
+In stead you can clone a repo using a terminal (available in the launcher). Open a terminal and execute the following command:
+
+`git clone <URL e.g. https://github.com/NaaVRE/vl-openlab.git>`
+:::
+
 To clone a Git repository into your virtual lab:
 1. Navigate to the `My data` folder in JupyterLab.
 2. Open the Git extension.
@@ -22,6 +29,12 @@ To clone a Git repository into your virtual lab:
 3. Click `Clone a repository`.
 
 ### Pushing changes to a git repository
+:::note
+The push button in the git-extension is currently broken. You can use `Push to remote` in the Git menu in the items instead:
+
+![push_to_remote.png](./images/push_to_remote.png)
+:::
+
 If you have write access to the repository, you can push changes using a fine-grained GitHub personal access token:
 1. Generate a token in GitHub:
    1. Go to GitHub personal access tokens.
