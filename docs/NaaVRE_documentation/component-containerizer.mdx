@@ -25,15 +25,19 @@ the container.
 
 Special variables can be used in the cell code. Their name should contain one of the following prefixes:
 
-* `param_`: these variables are used to pass input parameters to a cell. They should be used to allow users to set their own values when running a workflow. When containerizing the cell, a default value is extracted from the code and saved to the catalogue. When running a workflow that contains the cell, users use the default value or set a custom one. The value is then passed to the cell during execution.
+* `param_`: These variables are used to pass input parameters to a cell. They should be used to allow users to set their own values when running a workflow. When containerizing the cell, a default value is extracted from the code and saved to the catalogue. When running a workflow that contains the cell, users use the default value or set a custom one. The value is then passed to the cell during execution.
 
   [Param_example.webm](https://github.com/QCDIS/vre_documetation/assets/9680609/fea3d96b-97d3-43cd-b009-b5bd4537de5a)
 
-* `secret_`: these variables are used to pass secret parameters to a cell. They should be used for credentials such as passwords or API keys. They are similar to `param_` variables, but no default value is saved to the catalogue, and values are handled in a secure way when executing the workflow. In order not to accidentally commit secrets to the repository do not store them in the code. Instead, use the [SecretsProvider].
+* `secret_`: These variables are used to pass secret parameters to a cell. They should be used for credentials such as passwords or API keys. They are similar to `param_` variables, but no default value is saved to the catalogue, and values are handled in a secure way when executing the workflow. In order not to accidentally commit secrets to the repository do not store them in the code. Instead, use the [SecretsProvider].
+
+:::note
+`param_` and `secret_` variables are only picked up by the containerizer if they are defined in a different cell in the notebook than the cell in which they are used.
+:::
 
   ![Component Containerizer secrets](images/component_containerizer_secrets.png)
 
-* `conf_`: these variables are used to pass configuration parameters to all cells. They are visible by all cells of the notebook. They can be thought of as 'global' variables therefore, they do not require to set their type  like other variables. Their value is set when containerizing the cell, and cannot be updated when running the workflow.
+* `conf_`: These variables are used to pass configuration parameters to all cells. They are visible by all cells of the notebook. They can be thought of as 'global' variables therefore, they do not require to set their type  like other variables. Their value is set when containerizing the cell, and cannot be updated when running the workflow.
 
   [Conf_example.webm](https://github.com/QCDIS/vre_documetation/assets/9680609/f7020f7f-69d9-4916-bb56-83ed64cb98a8)
 
@@ -67,7 +71,7 @@ A notebook cell with the same variable name as both input and output is currentl
 ### Overriding definition of cell inputs and outputs
 
 :::warning
-This feature can result in broken containerized cells. Use it with caution.
+This feature can result in broken containerized cells. Use it with caution. If you can't figure out why the code analyzer is not detecting the inputs, outputs, parameters, configurations, secrets and dependencies correctly, please get in touch with the NaaVRE team for assistance.
 :::
 
 In normal circumstances, the component containerizer automatically determines the cell variables (inputs, outputs,
