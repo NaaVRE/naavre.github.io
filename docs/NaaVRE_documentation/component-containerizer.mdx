@@ -31,11 +31,11 @@ Special variables can be used in the cell code. Their name should contain one of
 
 * `secret_`: These variables are used to pass secret parameters to a cell. They should be used for credentials such as passwords or API keys. They are similar to `param_` variables, but no default value is saved to the catalogue, and values are handled in a secure way when executing the workflow. In order not to accidentally commit secrets to the repository do not store them in the code. Instead, use the [SecretsProvider].
 
-  ![Component Containerizer secrets](images/component_containerizer_secrets.png)
-
-:::warning
-`param_` and `secret_` variables are only picked up by the containerizer when they are defined in a different cell in the notebook than the cell in which they are used.
+:::note
+`param_` and `secret_` variables are only picked up by the containerizer if they are defined in a different cell in the notebook than the cell in which they are used.
 :::
+
+  ![Component Containerizer secrets](images/component_containerizer_secrets.png)
 
 * `conf_`: These variables are used to pass configuration parameters to all cells. They are visible by all cells of the notebook. They can be thought of as 'global' variables therefore, they do not require to set their type  like other variables. Their value is set when containerizing the cell, and cannot be updated when running the workflow.
 
