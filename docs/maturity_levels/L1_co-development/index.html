@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="generator" content="Docusaurus v3.10.1">
 <title data-rh="true">L1 - Co-development | NaaVRE</title><meta data-rh="true" name="viewport" content="width=device-width,initial-scale=1"><meta data-rh="true" name="twitter:card" content="summary_large_image"><meta data-rh="true" property="og:image" content="https://naavre.github.io/img/social-card.png"><meta data-rh="true" name="twitter:image" content="https://naavre.github.io/img/social-card.png"><meta data-rh="true" property="og:url" content="https://naavre.github.io/docs/maturity_levels/L1_co-development/"><meta data-rh="true" property="og:locale" content="en"><meta data-rh="true" name="docusaurus_locale" content="en"><meta data-rh="true" name="docsearch:language" content="en"><meta data-rh="true" name="docusaurus_version" content="current"><meta data-rh="true" name="docusaurus_tag" content="docs-default-current"><meta data-rh="true" name="docsearch:version" content="current"><meta data-rh="true" name="docsearch:docusaurus_tag" content="docs-default-current"><meta data-rh="true" property="og:title" content="L1 - Co-development | NaaVRE"><meta data-rh="true" name="description" content="Start situation"><meta data-rh="true" property="og:description" content="Start situation"><link data-rh="true" rel="icon" href="/img/favicon.ico"><link data-rh="true" rel="canonical" href="https://naavre.github.io/docs/maturity_levels/L1_co-development/"><link data-rh="true" rel="alternate" href="https://naavre.github.io/docs/maturity_levels/L1_co-development/" hreflang="en"><link data-rh="true" rel="alternate" href="https://naavre.github.io/docs/maturity_levels/L1_co-development/" hreflang="x-default"><script data-rh="true" type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Managing your virtual lab","item":"https://naavre.github.io/docs/maturity_levels/"},{"@type":"ListItem","position":2,"name":"L1 - Co-development","item":"https://naavre.github.io/docs/maturity_levels/L1_co-development"}]}</script><link rel="stylesheet" href="/assets/css/styles.2ecd50bd.css">
-<script src="/assets/js/runtime~main.267fd925.js" defer="defer"></script>
+<script src="/assets/js/runtime~main.68752e78.js" defer="defer"></script>
 <script src="/assets/js/main.aa3d91b6.js" defer="defer"></script>
 </head>
 <body>
@@ -32,7 +32,7 @@ LifeWatch provides limited storage and computing capacity for the virtual lab, s
 <li class="">Track the documentation with version control.</li>
 </ul>
 </li>
-<li class="">Start each cell in a notebook with a title.</li>
+<li class="">Start each notebook cell with a title.</li>
 </ul>
 </li>
 <li class="">Testing<!-- -->
@@ -47,7 +47,6 @@ LifeWatch provides limited storage and computing capacity for the virtual lab, s
 </li>
 <li class="">Packages &amp; Libraries<!-- -->
 <ul>
-<li class="">Pin versions of used software and libraries in the dependencies to prevent compatibility problems when updates occur to the packages and software.</li>
 <li class="">Prioritize open-source software to ensure long-term reproducibility. Avoid proprietary &#x27;free&#x27; tools to mitigate the risk of future licensing costs and technical debt.</li>
 </ul>
 </li>
@@ -110,11 +109,6 @@ For this, at least the following criteria should be checked:</p>
 <li class="task-list-item"><input type="checkbox" disabled=""> <!-- -->Personal tokens are not tracked by version control.</li>
 </ul>
 </li>
-<li class="">Versioning<!-- -->
-<ul class="contains-task-list containsTaskList_mC6p">
-<li class="task-list-item"><input type="checkbox" disabled=""> <!-- -->Versions of used software and libraries are pinned.</li>
-</ul>
-</li>
 <li class="">Data<!-- -->
 <ul class="contains-task-list containsTaskList_mC6p">
 <li class="task-list-item"><input type="checkbox" disabled=""> <!-- -->The data is ready for scientific experiments.</li>
@@ -129,12 +123,13 @@ Currently, you can verify this by manually executing all cells in the notebook o
 <li class="task-list-item"><input type="checkbox" disabled=""> <!-- -->The coding style is consistent and follows a style guide e.g. For Python <a href="https://peps.python.org/pep-0008/" target="_blank" rel="noopener noreferrer" class="">PEP 8</a>.</li>
 <li class="task-list-item"><input type="checkbox" disabled=""> <!-- -->Parallel processing is applied where suitable.</li>
 <li class="task-list-item"><input type="checkbox" disabled=""> <!-- -->There are clear errors when expected files and objects are not found.</li>
-<li class="task-list-item"><input type="checkbox" disabled=""> <!-- -->External code use, such as command-line interface tools, are clearly labeled.</li>
+<li class="task-list-item"><input type="checkbox" disabled=""> <!-- -->Calls to code outside the source code of the virtual lab, such as command-line interface tools, are clearly labeled.</li>
+<li class="task-list-item"><input type="checkbox" disabled=""> <!-- -->Calls to external services are clearly labeled.</li>
 </ul>
 </li>
 <li class="">Containerization<!-- -->
 <ul class="contains-task-list containsTaskList_mC6p">
-<li class="task-list-item"><input type="checkbox" disabled=""> <!-- -->The notebook cells can be containerized.</li>
+<li class="task-list-item"><input type="checkbox" disabled=""> <!-- -->The notebook cells can be containerized into workflow components.</li>
 </ul>
 </li>
 <li class="">Infrastructure<!-- -->
@@ -145,7 +140,7 @@ Currently, you can verify this by manually executing all cells in the notebook o
 </li>
 <li class="">Workflow execution<!-- -->
 <ul class="contains-task-list containsTaskList_mC6p">
-<li class="task-list-item"><input type="checkbox" disabled=""> <!-- -->The containerized cells can run without any modifications.</li>
+<li class="task-list-item"><input type="checkbox" disabled=""> <!-- -->The workflow components can run without any modifications.</li>
 <li class="task-list-item"><input type="checkbox" disabled=""> <!-- -->It is possible to give a demonstration of the virtual lab.</li>
 </ul>
 </li>
