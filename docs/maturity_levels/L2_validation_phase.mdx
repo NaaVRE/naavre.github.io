@@ -21,7 +21,7 @@ The following should also be done phase:
   * Make sure and describe how the virtual lab can be used on different scenarios, i.e. other datasets and with other parameters.
 * Versioning
   * Add a version number to the virtual lab so users can refer to this number when they are reporting reproducibility or bug issues.
-  * Give each containerized cell and executed workflow a persistent identifier and version number.
+  * Give each workflow component and workflow a version number.
   Feature is currently under development. For progress, see [#280](https://github.com/QCDIS/projects_overview/issues/280).
 * Documentation
   * Create a [user manual](../user_manual) for the virtual lab.
@@ -75,8 +75,8 @@ The coding experience of the reviewer of the user manual is similar to the codin
 * Codebase
   - [ ]  Unit tests verify the behavior of used methods and libraries. There should be a testing guideline, which will be done in this issue [\#274](https://github.com/QCDIS/projects_overview/issues/274).
   - [ ]  The virtual lab reads, writes and exchanges data in a way that meets domain-relevant community standards. Recommendations for what standards to use are under investigation, see github issue [#281](https://github.com/QCDIS/projects_overview/issues/281).
-  - [ ]  The code within cells is easily human-readable and others can easily modify it. If methods have side effects, this is clear to the user.
-  - [ ]  The input and output of each cell is clear. It is both clear what the structure is (e.g. what data type is used) and what the data content is from a domain perspective.
+  - [ ]  The code (in juppyter notebooks) is easily human-readable and others can easily modify it. If methods have side effects, this is clear to the user.
+  - [ ]  The input and output of each notebook cell is clear. It is both clear what the structure is (e.g. what data type is used) and what the data content is from a domain perspective.
 * Workflow
   - [ ]  The duration of computation, memory usage, and power usage of the containers is acceptable. As there is currently no dashboard to monitor resource usage, contact the VLIC team for guidelines.
 * Deployment

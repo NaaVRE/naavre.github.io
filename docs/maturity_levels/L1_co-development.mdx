@@ -20,13 +20,12 @@ Where possible, the following should be done while building the virtual lab:
     * Currently, we are choosing a default metadata catalogue. For progress, see issue [#275](https://github.com/QCDIS/projects_overview/issues/275).
   * Create a directory for documentation of the virtual lab.
     * Track the documentation with version control.
-  * Start each cell in a notebook with a title.
+  * Start each notebook cell with a title.
 * Testing
   * Find or create small sample datasets that allow you to run the workflow in a short period of time to ensure that you can test the entire workflow frequently.
 * Security
   * Make sure personal tokens for APIs do not end up in version control. See [Secrets Provider](./../../NaaVRE_documentation/secrets-provider).
 * Packages & Libraries
-  * Pin versions of used software and libraries in the dependencies to prevent compatibility problems when updates occur to the packages and software.
   * Prioritize open-source software to ensure long-term reproducibility. Avoid proprietary 'free' tools to mitigate the risk of future licensing costs and technical debt.
 * Data
   * Prepare the data for scientific experiments.
@@ -66,8 +65,6 @@ For this, at least the following criteria should be checked:
     - [ ] Metadata is tracked by version control.
 * Security
   - [ ] Personal tokens are not tracked by version control.
-* Versioning
-  - [ ] Versions of used software and libraries are pinned.
 * Data
   - [ ] The data is ready for scientific experiments.
   - [ ] Data that is only read by the virtual lab is stored in an external catalogue.
@@ -78,12 +75,13 @@ Currently, you can verify this by manually executing all cells in the notebook o
   - [ ] The coding style is consistent and follows a style guide e.g. For Python [PEP 8](https://peps.python.org/pep-0008/).
   - [ ] Parallel processing is applied where suitable.
   - [ ] There are clear errors when expected files and objects are not found.
-  - [ ] External code use, such as command-line interface tools, are clearly labeled.
+  - [ ] Calls to code outside the source code of the virtual lab, such as command-line interface tools, are clearly labeled.
+  - [ ] Calls to external services are clearly labeled.
 * Containerization
-  - [ ] The notebook cells can be containerized.
+  - [ ] The notebook cells can be containerized into workflow components.
 * Infrastructure
   - [ ] A benchmark has been performed to check the storage and computing needs for the virtual lab.
   - [ ] The storage and computing resources for running the scientific scenario in the virtual lab are arranged.
 * Workflow execution
-  - [ ] The containerized cells can run without any modifications.
+  - [ ] The workflow components can run without any modifications.
   - [ ] It is possible to give a demonstration of the virtual lab.
