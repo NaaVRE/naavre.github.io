@@ -16,13 +16,13 @@ The cells catalog contains all the cells that have been containerized.
 ### Parallelization
 To reduce workflow execution time, you can distribute tasks to multiple processors.
 For this two special components are available:
-* Splitter: This component is used to split an output array into batches and feed each batch to the
+* Splitter: This component is used to split an output list or array into batches and feed each batch to the
   next workflow component. That way the next component will be executed in parallel as many times as the number of batches.
-  You can limit the number of branches created by the splitter by pressing the pencil icon on the splitter.
+  You can limit the number of branches created by the splitter by using the pencil icon on the splitter.
 
-  ![Max branches](images/max_branches.png)
+![Max branches](images/max_branches.png)
 
-* Merger: This component is used to merge the outputs of the workflow component parallelized by the splitter into a single array.
+* Merger: This component is used to merge the output list or array of the workflow component parallelized by the splitter into a single list or array.
 
 You can practice using the splitter and merger in exercise 2 in the Open Lab.
 
