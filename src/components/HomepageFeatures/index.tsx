@@ -35,7 +35,7 @@ const FeatureList: FeatureItem[] = [
         Svg: require('@site/static/img/undraw_abstract_re_l9xy.svg').default,
         description: (
           <>
-            Execute workflows in a scalable cloud environment with configurable input and parameters.
+            Execute workflows in a scalable cloud environment with configurable input, parameters and scheduling.
           </>
         )
     },
