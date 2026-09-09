@@ -1,0 +1,32 @@
+---
+sidebar_position: 8
+title: Benchmarking workflows
+---
+Benchmarking workflows enables identification of bottlenecks and determine the required infrastructure for doing an experiment.
+
+#### Common pitfalls
+When benchmarking workflows in NaaVRE, be aware of the following common pitfalls:
+- **Caching**: Rerunning a workflow might be quicker because of caching. Caching can significantly speed up reruns of workflow components.
+If you want to estimate the time it takes to run a workflow, first run the workflow to get the components in the cache, then rerun the workflow and measure the duration of the second run.
+- **Parallelization**: Runtime does not scale linearly with parallelization: While parallelization can improve performance, the speedup is often not linear due to overheads like task distribution and synchronization.
+Only one process can write to a file at the same time: Concurrent writes to the same file can lead to conflicts and errors.
+- **Existing output**: Many packages and models check if output already exists: Some packages and models check for existing output files, which can make reruns faster. Be aware of this behavior and remove existing output when necessary.
+- **Dynamic input**: Dynamic inputs can vary between runs, leading to inconsistent benchmark results. Ensure that dynamic inputs are either controlled or documented to maintain reproducibility.
+
+#### Constrained Resources
+Benchmarking workflows in NaaVRE helps identify the requirements for multiple resources:
+- **CPU**: The number of CPU cores available limits the maximum number of batches that can be run in parallel.
+- **RAM**: The required random access memory per process can limit the number of processes that can be run in parallel.
+- **Input-Output (I/O)**: I/O operations can become a bottleneck, especially when dealing with large datasets or large numbers of files.
+- **Bandwidth**: Network bandwidth can limit the speed of data transfer, particularly when accessing remote data sources.
+- **Storage**: The amount of data that needs to be stored during a workflow run and be retained at the end of a workflow run needs to be assessed during the benchmark to ensure that the storage resources are sufficient.
+
+Currently the monitoring of resource usage is not available in NaaVRE, so you'll need to coordinate with the virtual lab coordinator to monitor resource usage during the benchmark.
+
+#### Procedure
+To ensure that your benchmark is reproducible, follow these steps:
+- **Document Input Files and Data**: Document input files and data used in the workflow.
+- **Document Parameters**: Record the parameters used in the workflow run.
+
+Run the workflow on a small test set of data to ensure that it runs correctly and to identify any potential issues before running the full benchmark.
+Run the full benchmark using [parallelization](./../../NaaVRE_documentation/experiment-manager) to assess the scalability of the workflow.

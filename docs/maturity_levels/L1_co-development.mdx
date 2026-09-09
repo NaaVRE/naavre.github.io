@@ -31,7 +31,7 @@ Where possible, the following should be done while building the virtual lab:
   * Prepare the data for scientific experiments.
   * Store data that is only read by the virtual lab in an external catalogue and use an API to access this data.
   * Arrange the storage resources for running the scientific scenario in the virtual lab.
-* Benchmark
+* [Benchmark](./../benchmarking)
   * Run the workflows to check the storage and computing needs for the virtual lab: Run the workflow without parallel processing for about an hour to get an estimate of the amount of time needed to process all you need when the workflow is parallelized.
     * The part of the data which is run should be representative of the entire dataset, with a median amount of input and output files of representative size.
     * Record which parameters and files on cloud storage you use for the benchmark, so that others can reproduce the benchmark.
@@ -82,7 +82,7 @@ Currently, you can verify this by manually executing all cells in the notebook o
 * Containerization
   - [ ] The notebook cells can be containerized into workflow components.
 * Infrastructure
-  - [ ] A benchmark has been performed to check the storage and computing needs for the virtual lab.
+  - [ ] A [benchmark](./../benchmarking) has been performed to check the storage and computing needs for the virtual lab.
   - [ ] The storage and computing resources for running the scientific scenario in the virtual lab are arranged.
 * Workflow execution
   - [ ] The workflow components can run without any modifications.
