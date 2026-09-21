@@ -68,6 +68,19 @@ add a dummy cell at the end of the notebook that explicitly uses the variable. T
 A notebook cell with the same variable name as both input and output is currently not supported.
 :::
 
+### Including dependencies in workflow components
+To keep workflow components maintainable, reliable, and reusable, the NaaVRE containerizer creates workflow components that are self-contained.
+This means that all code used in the workflow component should be included in the notebook cell itself or imported from external libraries.
+If you use your own models in NaaVRE workflows, there are three ways to include the code in a workflow component:
+1) Put the code in the notebook cell itself.
+2) Package the code as a Python or R package (and publish it through conda-forge).
+3) Import the code from a file in cloud storage.
+
+The first two approaches are preferred.
+Packages from conda forge are easy to include in workflow components, but also other packages can be included in [a virtual lab's software environment](./../software-environment).
+If code that is still in the development phase is used in a workflow component,
+it can be included in the workflow component by importing it from a file in cloud storage (see the [example in the open lab](https://beta.naavre.net/jupyter/hub/user-redirect/lab/tree/Virtual%20Labs/Open%20Lab/Git%20public/examples/Import%20code%20from%20a%20file.ipynb?profile=openlab)).
+
 ### Overriding definition of cell inputs and outputs
 
 :::warning
