@@ -1,8 +1,8 @@
-                              # Component Containerizer
+                              # Creating workflow components
 
-The component containerizer enables you to turn Jupyter Notebook cells into workflow components.
-The containerizer analyzes the code in the cell together with the code in all other cells in the notebook
-to determine the input and output of the workflow component, as well as the libraries and parameters in use.
+Once code can be executed successfully in a Jupyter notebook, notebook cells can be transformed into workflow components to create shareable, scalable, or recurring workflows.
+The component containerizer facilitates this process by converting Jupyter Notebook cells into workflow components.
+It analyzes the code in the selected cell along with the code in all other cells in the notebook to determine the input and output of the workflow component, as well as the libraries and parameters being used.
 
 ![Component Containerizer](images/component_containerizer_1.png)
 
@@ -67,6 +67,23 @@ add a dummy cell at the end of the notebook that explicitly uses the variable. T
 :::note
 A notebook cell with the same variable name as both input and output is currently not supported.
 :::
+
+### Including dependencies in workflow components
+
+To ensure workflow components are maintainable, reliable, and reusable, the NaaVRE containerizer creates self-contained workflow components.
+This means all code used in a workflow component should either be included in the notebook cell itself or imported from external libraries.
+
+If you use custom models in NaaVRE workflows, there are three ways to include the code in a workflow component:
+
+1. **In Cell Code**: Place the code directly in the notebook cell.
+2. **Packaged Code**: Package the code as a Python or R package (and publish it through conda-forge).
+3. **Cloud Storage Import**: Import the code from a file stored in cloud storage.
+
+The first two approaches are preferred for better maintainability and reusability.
+Packages from conda-forge are easy to include in workflow components, but other packages or libraries can also be included in [a virtual lab's software environment](./../software-environment).
+
+If the code is still in the development phase and needs to be used in a workflow component, it can be included by importing it from a file in cloud storage.
+For an example of this approach, see the [example in the open lab](https://beta.naavre.net/jupyter/hub/user-redirect/lab/tree/Virtual%20Labs/Open%20Lab/Git%20public/examples/Import%20code%20from%20a%20file.ipynb?profile=openlab).
 
 ### Overriding definition of cell inputs and outputs
 
