@@ -65,8 +65,9 @@ To install missing packages for the current virtual lab session only, use the fo
 !pip install scipy
 ```
 :::warning
-Notebook cells that contain both `!pip install` commands and code break [the NaaVRE containerizer](./../creating-workflow-components).
-Put `!pip install` commands in a separate cell from the code that uses the installed packages.
+Notebook cells that contain both `!pip install` commands and code, disrupt [the NaaVRE containerizer](./../creating-workflow-components).
+The containerizer assumes that cells containing code do not include any other commands.
+Place `!pip install` commands in a separate notebook cell from the code that utilizes the installed packages.
 :::
 
 #### R (install.packages)
