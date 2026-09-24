@@ -1,1 +1,0 @@
-"use strict";(globalThis.webpackChunknaa_vre_website=globalThis.webpackChunknaa_vre_website||[]).push([[7472],{5513(e){e.exports=JSON.parse('{"title":"Recent posts","items":[]}')}}]);
