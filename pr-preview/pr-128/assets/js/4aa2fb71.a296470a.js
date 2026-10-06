@@ -1,1 +1,0 @@
-"use strict";(globalThis.webpackChunknaa_vre_website=globalThis.webpackChunknaa_vre_website||[]).push([[5243],{8199(e){e.exports=JSON.parse('{"metadata":{"permalink":"/pr-preview/pr-128/blog","page":1,"postsPerPage":10,"totalPages":1,"totalCount":0,"blogDescription":"Blog","blogTitle":"Blog"}}')}}]);
