@@ -24,7 +24,7 @@ Where possible, the following should be done while building the virtual lab:
 * Testing
   * Find or create small sample datasets that allow you to run the workflow in a short period of time to ensure that you can test the entire workflow frequently.
 * Security
-  * Make sure personal tokens for APIs do not end up in version control. See [Secrets Provider](./../../NaaVRE_documentation/secrets-provider).
+  * Make sure personal tokens for APIs do not end up in version control. See [Secrets Provider](./../../NaaVRE_documentation/securely-use-secrets).
 * Packages & Libraries
   * Prioritize open-source software to ensure long-term reproducibility. Avoid proprietary 'free' tools to mitigate the risk of future licensing costs and technical debt.
 * Data
@@ -36,7 +36,7 @@ Where possible, the following should be done while building the virtual lab:
     * The part of the data which is run should be representative of the entire dataset, with a median amount of input and output files of representative size.
     * Record which parameters and files on cloud storage you use for the benchmark, so that others can reproduce the benchmark.
 * Parallelization
-  * Parallelize the execution of the parts of the code where this is useful. A tutorial is available [here](https://github.com/QCDIS/lifewatch-notebooks/blob/main/NaaVRE-tutorials/splitting-classic.ipynb).
+  * Parallelize the execution of the parts of the code where this is useful. See [parallelization](./../../NaaVRE_documentation/compose-and-execute-workflows/#parallelization).
 * Workflow
   * Prepare and perform a demonstration of the virtual lab to inform the community supporter of the possibilities in the virtual lab.
 
