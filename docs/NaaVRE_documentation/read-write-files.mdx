@@ -4,9 +4,9 @@ NaaVRE provides three ways to store data. Choosing the right storage is a trade-
 
 Storage Type            |	Suitable For...	| Lifetime |	Speed
 ------------------------|----------------|----------|--------------
-Within workflow component storage |	Files used in one Jupyter notebook cell / workflow component.	| Kept during the execution of the component. |	Fastest
-Between workflow component storage | Passing data between workflow components. |	Kept during the workflow run. |	Fast
-Cloud storage           |	Saving workflow output.	| Persistent.	| Slower
+[Within workflow component storage](#Within-workflow-component-storage) |	Files used in one Jupyter notebook cell / workflow component.	| Kept during the execution of the component. |	Fastest
+[Between workflow component storage](#Between-workflow-component-storage) | Passing data between workflow components. |	Kept during the workflow run. |	Fast
+[Cloud storage](#Cloud-storage)           |	Saving workflow output.	| Persistent.	| Slower
 
 ### Within workflow component storage {#Within-workflow-component-storage}
 This storage is for intermediate files created and used within a single workflow component.
@@ -49,7 +49,13 @@ write.csv(data.frame(), file = "/home/jovyan/Cloud Storage/naa-vre-user-data/dum
 ```
 
 #### External Cloud Storage (large datasets)
-For "Big Data" (i.e. multiple gigabytes), do not use the integrated folders. Instead, connect directly to external providers.
+For large datasets (multiple gigabytes), do not use NaaVRE’s integrated folders. Connect directly to an external storage provider instead.
+
+To back up output data generated in NaaVRE, add a component to your workflow that copies the output files to your cloud storage provider.
+This requires the provider to allow write access from a Python or R script running outside its infrastructure.
+
+If that is not possible, you can retrieve the data from a script running on the cloud provider’s servers. NaaVRE storage is S3-compatible.
+You can request access to the MinIO UI, where you can create an access key and secret key for connecting to the storage.
 
 For example, to read a file from MinIO/S3, in Python you can use the following code:
 
